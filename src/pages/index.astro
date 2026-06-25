@@ -1,17 +1,126 @@
 ---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
+import CredibilityBand from '../components/CredibilityBand.astro';
+import EverythingIncluded from '../components/EverythingIncluded.astro';
+import Manifesto from '../components/Manifesto.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import FirstVisit from '../components/FirstVisit.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Results from '../components/Results.astro';
+import Pillars from '../components/Pillars.astro';
+import Marquee from '../components/Marquee.astro';
+import Footer from '../components/Footer.astro';
 
+import FAQAccordion from '../components/FAQAccordion';
+import LocationSelector from '../components/LocationSelector';
+import StickyMobileCTA from '../components/StickyMobileCTA';
+
+import { TRT_FAQS } from '../data/faqs';
+import { LOCATIONS } from '../data/locations';
+import { GBP_REVIEWS_URL } from '../data/testimonials';
+
+// JSON-LD Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": TRT_FAQS.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a,
+    },
+  })),
+};
+
+const clinicSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Men's Wellness Centers",
+  "description": "Provider-supervised testosterone replacement therapy at 3 Virginia locations. Testing and results reviewed in-visit.",
+  "url": "https://menswellnesscenters.com",
+  "telephone": "+18663444955",
+  "medicalSpecialty": "Endocrinology",
+  "location": LOCATIONS.map(loc => ({
+    "@type": "Place",
+    "name": loc.name,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": loc.address,
+      "addressLocality": loc.city,
+      "addressRegion": "VA",
+      "postalCode": loc.cityStateZip.split(" ").pop(),
+      "addressCountry": "US",
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": loc.geo.latitude,
+      "longitude": loc.geo.longitude,
+    },
+    "telephone": loc.phone,
+  })),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "191",
+    "bestRating": "5",
+  },
+};
+
+const schemaJson = JSON.stringify([faqSchema, clinicSchema]);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base
+  title="Men's Wellness Centers | Low Testosterone Therapy in Virginia"
+  description="Provider-supervised testosterone replacement therapy at 3 Virginia locations. Testing and results reviewed in-visit. Walk in today."
+  schemaJson={schemaJson}
+>
+  <Header />
+  <main class="flex-1">
+    <Hero />
+    <TrustBadgeStrip />
+    <CredibilityBand />
+    <EverythingIncluded />
+    <Manifesto />
+    <ComparisonTable />
+    <FirstVisit />
+    <HowItWorks />
+    <Results />
+    <Pillars />
+    <Marquee />
+    <LocationSelector client:visible locations={LOCATIONS} />
+    <FAQAccordion client:visible faqs={TRT_FAQS} />
+
+    <!-- Final CTA section -->
+    <section id="final-cta" style="scroll-margin-top: 64px; background: var(--brand-navy-deep); padding: 64px 24px; text-align: center;">
+      <div style="max-width: 640px; margin: 0 auto;">
+        <p style="font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand-cta-accessible); margin-bottom: 16px;">
+          Take The First Step
+        </p>
+        <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 44px); color: var(--c-text-on-dark); text-transform: uppercase; line-height: 1.1; margin-bottom: 16px;">
+          Ready to feel like yourself again?
+        </h2>
+        <p style="font-family: var(--font-body); font-size: 17px; color: var(--c-text-on-dark-muted); line-height: 1.6; margin-bottom: 32px;">
+          No-cost visit. Same-day availability.
+        </p>
+        <a
+          href="https://book.menswellnesscenters.com"
+          style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border: none; height: 60px; min-height: 60px; background: var(--brand-cta); color: var(--c-text-on-dark); font-size: 18px; letter-spacing: 0.06em; font-family: var(--font-display); text-transform: uppercase; white-space: nowrap; border-radius: 60px; padding: 0 40px; text-decoration: none; box-shadow: 0 8px 32px rgba(232,103,10,0.45);"
+        >
+          Book in-person visit
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p style="margin-top: 16px; font-size: 13px; color: var(--c-text-on-dark-subtle); font-family: var(--font-body);">
+          No obligation. Cancel or reschedule at no charge, anytime.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <StickyMobileCTA client:visible />
+  <div class="md:hidden h-[72px]" aria-hidden="true"></div>
+</Base>

@@ -1,0 +1,57 @@
+---
+const steps = [
+  {
+    num: "1",
+    title: "Book Online In Under 5 Minutes",
+    desc: "Pick the location and time that works for you. No referral, no phone tag.",
+    isFinal: false,
+  },
+  {
+    num: "2",
+    title: "A Provider Who Actually Explains Your Labs",
+    desc: "A licensed provider who specializes in men's health sits with you, goes over every number, and tells you exactly what's driving your symptoms.",
+    isFinal: false,
+  },
+  {
+    num: "3",
+    title: "Walk Out With Your Protocol Locked In",
+    desc: "A care plan built around your labs and your goals. Most members start treatment the same visit.",
+    isFinal: true,
+  },
+];
+---
+<section id="how-it-works" style="scroll-margin-top: 64px; background: var(--brand-cream);" class="py-12 md:py-20" aria-label="How it works">
+  <div class="max-w-[720px] mx-auto px-6">
+    <p style="font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand-navy); margin-bottom: 12px;">
+      The Process
+    </p>
+    <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 4vw, 48px); color: var(--brand-navy); line-height: 1.1; text-transform: uppercase;">
+      Here's how it works in one visit
+    </h2>
+
+    <div class="mt-8 flex flex-col gap-6">
+      {steps.map((s) => (
+        <div class="flex gap-4">
+          <div
+            style={`width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: ${s.isFinal ? 'var(--brand-cta)' : 'var(--brand-navy)'}; box-shadow: ${s.isFinal ? '0 0 0 4px rgba(232,103,10,0.20), 0 8px 24px rgba(232,103,10,0.30)' : '0 0 0 3px rgba(11,16,41,0.12), 0 4px 16px rgba(0,0,0,0.15)'};`}
+          >
+            <span style="font-weight: 700; font-size: 16px; color: var(--c-text-on-dark); font-family: var(--font-display);">{s.num}</span>
+          </div>
+          <div>
+            <h3 style="font-weight: 700; font-size: 18px; color: var(--brand-navy); font-family: var(--font-body); margin: 0 0 4px;">{s.title}</h3>
+            <p style="font-size: 17px; color: #4A4A4A; font-family: var(--font-body); line-height: 1.6; margin: 0;">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <a
+      href="#hero-form"
+      onclick="event.preventDefault(); document.getElementById('hero-form')?.scrollIntoView({behavior:'smooth'});"
+      style="margin-top: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border: none; height: 56px; min-height: 56px; background: var(--brand-cta); color: var(--c-text-on-dark); font-size: 16px; letter-spacing: 0.06em; font-family: var(--font-display); text-transform: uppercase; white-space: nowrap; border-radius: 60px; padding: 0 32px; text-decoration: none; cursor: pointer;"
+    >
+      Book in-person visit
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+---
+<footer style="background: var(--brand-navy); color: rgba(255,255,255,0.55); font-family: var(--font-body);">
+  <div class="max-w-[1200px] mx-auto px-6 pt-14">
+
+    <!-- Row 1: Logo + Contact -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+
+      <!-- Brand column -->
+      <div>
+        <img
+          src="/logos/Text_Logo_white.webp"
+          onerror="this.src='/logos/Text_Logo_white.png'"
+          alt="Men's Wellness Centers"
+          style="height: 40px; width: auto; opacity: 0.90;"
+          width="220"
+          height="40"
+          loading="lazy"
+          decoding="async"
+        />
+        <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.35);">
+          Copyright &copy; {new Date().getFullYear()}
+        </p>
+        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 6px;">
+          <a href="tel:+18663444955" style="font-size: 14px; color: rgba(255,255,255,0.60); text-decoration: none;">
+            ☎ (866) 344-4955
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: rgba(255,255,255,0.90); letter-spacing: 0.14em;">Contact</div>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          {[
+            { label: "Richmond", tel: "tel:8043464636", num: "804-346-4636" },
+            { label: "Virginia Beach", tel: "tel:7576124428", num: "757-612-4428" },
+            { label: "Newport News", tel: "tel:7578066263", num: "757-806-6263" },
+          ].map(({ label, tel, num }) => (
+            <li style="margin-bottom: 4px; font-size: 14px; min-height: 44px; display: flex; align-items: center; color: rgba(255,255,255,0.65);">
+              {label}: <a href={tel} style="color: rgba(255,255,255,0.65); text-decoration: none; margin-left: 4px;">{num}</a>
+            </li>
+          ))}
+          <li style="margin-bottom: 4px; font-size: 14px; min-height: 44px; display: flex; align-items: center;">
+            <a href="mailto:info@menswellnesscenters.com" style="color: rgba(255,255,255,0.65); text-decoration: none;">
+              info@menswellnesscenters.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Row 2: Trust badges -->
+    <div style="margin-top: 48px; padding-top: 40px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 48px; border-top: 1px solid rgba(255,255,255,0.10);">
+      <img src="/images/badges/clia-color.webp" alt="CLIA Certified" style="height: 64px; width: auto;" width="140" height="64" loading="lazy" decoding="async" />
+      <a href="https://www.legitscript.com/websites/?checker_keywords=menswellnesscenters.com" target="_blank" rel="noopener noreferrer" aria-label="Verify LegitScript Certification" style="display: inline-block;">
+        <img src="/images/badges/legitscript-color.webp" alt="LegitScript Certified" style="height: 80px; width: auto;" width="110" height="80" loading="lazy" decoding="async" />
+      </a>
+      <img src="/images/badges/hipaa-color.webp" alt="HIPAA Compliant" style="height: 64px; width: auto;" width="140" height="64" loading="lazy" decoding="async" />
+    </div>
+
+    <!-- Row 3: Disclaimers -->
+    <div style="margin-top: 40px; padding-top: 32px; display: flex; flex-direction: column; gap: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+      {[
+        "Treatment requires a clinical evaluation and is provided only when medically appropriate.",
+        "Individual results vary. Treatment is provided by licensed providers at Men's Wellness Centers.",
+        "The information presented on this website is provided for general informational purposes only and is not intended to constitute medical advice, diagnosis, or treatment. Men's Wellness Centers does not provide medical advice through this website, and nothing on this website should be relied upon as a substitute for an in-person evaluation, diagnosis, or consultation with a licensed healthcare professional.",
+        "Men's Wellness Centers provides care through in-center visits at its Virginia locations. Medical services are provided following an individualized evaluation and are rendered by licensed medical professionals exercising independent clinical judgment.",
+        "Testimonials and reviews reflect individual experiences only and are not intended to represent typical outcomes or make medical claims.",
+      ].map((text) => (
+        <p style="font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.35); margin: 0; word-break: break-word;">{text}</p>
+      ))}
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="margin-top: 32px; padding: 20px 0 28px; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: flex; flex-direction: column; align-items: center; gap: 8px; border-top: 1px solid rgba(255,255,255,0.08);" class="md:flex-row md:flex-wrap md:justify-center">
+      <span>&copy; {new Date().getFullYear()} Men&rsquo;s Wellness Centers</span>
+      <span class="hidden md:inline" style="margin: 0 12px;">|</span>
+      {[
+        { href: "/prescribing-policy", label: "Safety Policy" },
+        { href: "/terms-of-service", label: "Terms of Service" },
+        { href: "/privacy-policy", label: "Privacy Policy" },
+        { href: "/privacy-policy#hipaa", label: "HIPAA Notice" },
+      ].map(({ href, label }) => (
+        <a href={href} style="min-height: 44px; color: rgba(255,255,255,0.35); text-decoration: none; display: inline-flex; align-items: center; padding: 0 6px;">{label}</a>
+      ))}
+    </div>
+  </div>
+</footer>

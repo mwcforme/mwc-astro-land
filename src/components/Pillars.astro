@@ -1,0 +1,95 @@
+---
+const pillars = [
+  {
+    title: "LICENSED PROVIDERS",
+    desc: "Licensed Virginia providers and nurse practitioners. A real provider, every visit.",
+    image: "/assets/lp/patient-bp-intake-portrait.webp",
+    imgPosition: "center 30%",
+  },
+  {
+    title: "ON-SITE LABS",
+    desc: "CLIA-certified lab in every center. No third-party lab visit, no waiting a week for results.",
+    image: "/assets/lp/onsite-labs-centrifuge.webp",
+    imgPosition: "center 40%",
+  },
+  {
+    title: "BUILT FOR MEN",
+    desc: "TRT, ED, and weight loss is all we do. Dedicated focus means faster answers and better outcomes.",
+    image: "/assets/lp/man-bloodwork-clinic.webp",
+    imgPosition: "center 30%",
+  },
+];
+
+const cardStyle = "background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.35); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);";
+---
+<section class="py-14 md:py-20" style="background: var(--brand-navy);">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <p style="font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand-cta-accessible); margin-bottom: 12px; text-align: center;">
+      Our Difference
+    </p>
+    <h2 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; text-align: center; color: var(--c-text-on-dark); font-size: clamp(24px, 4vw, 40px); margin-bottom: 40px md:mb-12; line-height: 1.1;" class="mb-10 md:mb-12">
+      Provider-Led. Virginia-Local.<br class="hidden sm:block" />Built for Men.
+    </h2>
+
+    <!-- Desktop + tablet: grid -->
+    <div class="hidden sm:flex sm:flex-wrap justify-center gap-4 md:gap-6">
+      {pillars.map((p) => (
+        <div
+          class="rounded-xl overflow-hidden text-center w-full sm:w-[calc(50%-8px)] lg:w-[calc(33%-12px)]"
+          style={cardStyle}
+        >
+          <div class="flex justify-center mt-6">
+            <img
+              src={p.image}
+              alt={p.title}
+              class="rounded-full object-cover"
+              style={`width: 120px; height: 120px; border: 3px solid var(--c-border-on-dark); object-position: ${p.imgPosition};`}
+              width="120"
+              height="120"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; margin: 16px 12px 0; color: var(--c-text-on-dark);">
+            {p.title}
+          </h3>
+          <p style="font-size: 14px; padding: 0 20px 24px; margin-top: 8px; line-height: 1.6; color: rgba(255,255,255,0.85); font-family: var(--font-body);">
+            {p.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile: horizontal snap-scroll -->
+    <div
+      class="sm:hidden flex gap-3 pb-3 overflow-x-auto"
+      style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; scrollbar-width: none;"
+    >
+      {pillars.map((p) => (
+        <div
+          class="rounded-xl overflow-hidden text-center flex-shrink-0"
+          style={`width: 188px; scroll-snap-align: start; ${cardStyle}`}
+        >
+          <div class="flex justify-center mt-5">
+            <img
+              src={p.image}
+              alt={p.title}
+              class="rounded-full object-cover"
+              style={`width: 96px; height: 96px; border: 3px solid var(--c-border-on-dark); object-position: ${p.imgPosition};`}
+              width="96"
+              height="96"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; margin: 12px 12px 0; color: var(--c-text-on-dark);">
+            {p.title}
+          </h3>
+          <p style="font-size: 12px; padding: 0 16px 20px; margin-top: 6px; line-height: 1.6; color: rgba(255,255,255,0.85); font-family: var(--font-body);">
+            {p.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

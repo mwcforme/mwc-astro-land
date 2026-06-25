@@ -1,0 +1,61 @@
+---
+import { GBP_REVIEWS_URL } from '../data/testimonials';
+---
+<section style="background: var(--brand-navy-deep);">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 text-center">
+    <!-- Stat 1 -->
+    <div class="flex flex-col items-center gap-2 px-2 py-5 md:py-7">
+      <div style="font-family: var(--font-display); color: var(--c-text-on-dark); font-size: clamp(26px, 4vw, 44px); line-height: 1; letter-spacing: -0.01em; font-weight: 700; text-transform: uppercase;">
+        10,000+
+      </div>
+      <div style="text-transform: uppercase; white-space: pre-line; font-family: var(--font-body); color: rgba(255,255,255,0.70); font-size: 11px; letter-spacing: 0.10em; font-weight: 700; line-height: 1.45;">
+        Virginia Members
+      </div>
+    </div>
+
+    <!-- Stat 2 -->
+    <div class="flex flex-col items-center gap-2 px-2 py-5 md:py-7">
+      <div style="font-family: var(--font-display); color: var(--c-text-on-dark); font-size: clamp(26px, 4vw, 44px); line-height: 1; letter-spacing: -0.01em; font-weight: 700; text-transform: uppercase;">
+        3
+      </div>
+      <div style="text-transform: uppercase; white-space: pre-line; font-family: var(--font-body); color: rgba(255,255,255,0.70); font-size: 11px; letter-spacing: 0.10em; font-weight: 700; line-height: 1.45;">
+        Virginia{"\n"}Centers
+      </div>
+    </div>
+
+    <!-- Stat 3 (link to reviews) -->
+    <a
+      href={GBP_REVIEWS_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block hover:opacity-80 transition-opacity"
+      style="text-decoration: none;"
+    >
+      <div class="flex flex-col items-center gap-2 px-2 py-5 md:py-7">
+        <div style="font-family: var(--font-display); color: var(--c-text-on-dark); font-size: clamp(26px, 4vw, 44px); line-height: 1; letter-spacing: -0.01em; font-weight: 700; text-transform: uppercase;">
+          4.9★
+        </div>
+        <div style="text-transform: uppercase; white-space: pre-line; font-family: var(--font-body); color: rgba(255,255,255,0.70); font-size: 11px; letter-spacing: 0.10em; font-weight: 700; line-height: 1.45;">
+          Google Rating{"\n"}191 Verified Reviews
+        </div>
+      </div>
+    </a>
+
+    <!-- Stat 4 -->
+    <div class="flex flex-col items-center gap-2 px-2 py-5 md:py-7">
+      <div style="font-family: var(--font-display); color: var(--c-text-on-dark); font-size: clamp(26px, 4vw, 44px); line-height: 1; letter-spacing: -0.01em; font-weight: 700; text-transform: uppercase;">
+        Same-Day
+      </div>
+      <div style="text-transform: uppercase; white-space: pre-line; font-family: var(--font-body); color: rgba(255,255,255,0.70); font-size: 11px; letter-spacing: 0.10em; font-weight: 700; line-height: 1.45;">
+        Lab Results{"\n"}Same Visit
+      </div>
+    </div>
+  </div>
+
+  <!-- FSA/HSA trust line -->
+  <div
+    style="text-align: center; padding: 10px 16px; font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.08);"
+  >
+    FSA, HSA &amp; financing accepted. We do not bill insurance.
+  </div>
+</section>
