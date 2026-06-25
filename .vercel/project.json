@@ -1,1 +1,16 @@
-{"projectId":"prj_iS64T0EuZkcnyGnVvW83mQBYN3f1","orgId":"team_OIAEXAjR4M4IRGpMuoyKFROn","projectName":"mwc-astro-land"}
+{
+  "projectId": "prj_iS64T0EuZkcnyGnVvW83mQBYN3f1",
+  "orgId": "team_OIAEXAjR4M4IRGpMuoyKFROn",
+  "projectName": "mwc-astro-land",
+  "settings": {
+    "createdAt": 1782350701956,
+    "framework": "astro",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

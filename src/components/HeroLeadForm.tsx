@@ -146,13 +146,13 @@ export default function HeroLeadForm() {
         lineHeight: 1.5,
         margin: '0 0 24px',
       }}>
-        Same-day labs. No insurance needed. FSA &amp; HSA accepted.
+        No-cost 60-minute visit. Same-day labs. No insurance needed. FSA &amp; HSA accepted.
       </p>
 
       <form onSubmit={handleSubmit} noValidate>
         {/* Name */}
         <div style={{ marginBottom: '16px' }}>
-          <label htmlFor={nameId} style={labelStyle}>Full Name</label>
+          <label htmlFor={nameId} style={labelStyle}>Name</label>
           <input
             id={nameId}
             type="text"
@@ -171,7 +171,7 @@ export default function HeroLeadForm() {
 
         {/* Phone */}
         <div style={{ marginBottom: '20px' }}>
-          <label htmlFor={phoneId} style={labelStyle}>Phone Number</label>
+          <label htmlFor={phoneId} style={labelStyle}>Phone</label>
           <input
             id={phoneId}
             type="tel"
@@ -191,7 +191,7 @@ export default function HeroLeadForm() {
 
         {/* Location */}
         <div style={{ marginBottom: '20px' }}>
-          <p style={{ ...labelStyle, marginBottom: '10px' }}>Select Location</p>
+          <p style={{ ...labelStyle, marginBottom: '10px' }}>Location</p>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             {LOCATIONS.map((loc) => (
               <label
