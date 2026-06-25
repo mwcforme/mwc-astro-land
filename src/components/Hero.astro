@@ -1,11 +1,12 @@
 ---
 import { GBP_REVIEWS_URL } from '../data/testimonials';
+import HeroLeadForm from './HeroLeadForm';
 ---
 <section
   id="hero"
-  style="background: var(--brand-navy-deep); padding-top: 64px; min-height: 100svh; display: flex; align-items: center;"
+  style="background: var(--brand-navy-deep); padding-top: 64px; min-height: 720px; display: flex; align-items: center;"
 >
-  <div class="max-w-[1200px] mx-auto px-6 py-12 md:py-16 w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+  <div class="max-w-[1200px] mx-auto px-6 py-12 lg:py-16 w-full grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-10 lg:gap-12 items-center">
     <!-- Left: copy -->
     <div>
       <!-- Eyebrow -->
@@ -13,12 +14,10 @@ import { GBP_REVIEWS_URL } from '../data/testimonials';
         Virginia's Provider-Led Men's Health Clinic
       </p>
 
-      <!-- H1 -->
-      <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 5vw, 58px); line-height: 1.05; color: var(--c-text-on-dark); text-transform: uppercase; margin: 0 0 8px;">
-        YOUR GP SAID<br />YOU'RE FINE.
-      </h1>
-      <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 5vw, 58px); line-height: 1.05; color: var(--brand-cta); text-transform: uppercase; margin: 0 0 20px;">
-        YOU DON'T<br />FEEL FINE.
+      <!-- H1: single element with two spans -->
+      <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 5vw, 58px); line-height: 1.05; text-transform: uppercase; margin: 0 0 20px;">
+        <span style="display: block; color: var(--c-text-on-dark);">YOUR GP SAID<br />YOU'RE FINE.</span>
+        <span style="display: block; color: var(--brand-cta);">YOU DON'T<br />FEEL FINE.</span>
       </h1>
 
       <!-- Star rating -->
@@ -41,11 +40,11 @@ import { GBP_REVIEWS_URL } from '../data/testimonials';
       <!-- Symptom bullets -->
       <ul style="list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px;">
         {[
-          "Constant fatigue even after a full night's sleep",
-          "Low drive and motivation you can't explain",
-          "Brain fog that's getting worse, not better",
-          "Declining muscle, increasing body fat",
-          "Mood changes your doctor calls 'normal aging'",
+          "You're tired by noon. Coffee stopped working.",
+          "You're training just as hard. Your body stopped responding.",
+          "Your drive is down. For work, the gym, her.",
+          "Your doctor ran labs. Said everything is normal. You don't feel normal.",
+          "You don't need a pep talk. You need someone to look at the data.",
         ].map((symptom) => (
           <li style="display: flex; align-items: flex-start; gap: 10px; font-family: var(--font-body); font-size: 15px; color: var(--c-text-on-dark-muted); line-height: 1.5;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-cta)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><polyline points="9 18 15 12 9 6"/></svg>
@@ -56,7 +55,7 @@ import { GBP_REVIEWS_URL } from '../data/testimonials';
 
       <!-- Body copy -->
       <p style="font-family: var(--font-body); font-size: 16px; color: var(--c-text-on-dark-muted); line-height: 1.7; margin-bottom: 28px;">
-        We specialize in men's hormonal health. On-site labs drawn and reviewed in the same visit by a Virginia-licensed provider. No referral needed. No-cost first visit.
+        Your GP checked the basics and said you're fine. You're not fine. We specialize in men's hormones, ED, and weight loss. It's all we do. That focus is the difference.
       </p>
 
       <!-- No-cost badge -->
@@ -66,9 +65,9 @@ import { GBP_REVIEWS_URL } from '../data/testimonials';
       </div>
     </div>
 
-    <!-- Right: lead form placeholder -->
-    <div id="hero-form" style="scroll-margin-top: 80px;">
-      <!-- React lead form island will be inserted here via index.astro -->
+    <!-- Right: lead form React island -->
+    <div id="hero-form" style="scroll-margin-top: 80px; display: flex; justify-content: center;">
+      <HeroLeadForm client:load />
     </div>
   </div>
 </section>
