@@ -1,36 +1,43 @@
 ---
 ---
 
-<section style="background: var(--cro-surface-secondary); padding: var(--section-y) 24px; overflow: hidden;">
+<section style="background: var(--cro-surface-secondary, #ECEAE6); padding: var(--section-y) 24px; overflow: hidden;">
   <div class="manifesto-grid">
+
     <!-- Copy — left on desktop, second on mobile -->
     <div class="manifesto-copy">
+
       <!-- Eyebrow -->
-      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange); margin: 0 0 16px;">WHY MEN CHOOSE US</p>
+      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow, 0.8125rem); font-weight: 700; letter-spacing: var(--ls-eyebrow, 0.14em); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 16px;">WHY MEN CHOOSE US</p>
 
       <!-- Heading -->
-      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--cro-text-on-light); margin-bottom: 24px;">
+      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1, clamp(2rem, 4vw, 3.25rem)); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--cro-text-on-light, #0B1029); margin-bottom: 24px; margin-top: 0;">
         Your labs might be normal.<br />
         You still don't feel right.
       </h2>
 
       <!-- Body paragraphs -->
-      <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.7; margin-bottom: 16px; max-width: 580px;">
-        Most men wait two years before saying something out loud. They get bloodwork. Their GP says everything looks fine. They go home. Nothing changes.
+      <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); line-height: 1.7; margin-bottom: 16px; margin-top: 0; max-width: 580px;">
+        Most men wait two years before saying something out loud. They get
+        bloodwork. Their GP says everything looks fine. They go home. Nothing
+        changes.
       </p>
-      <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.7; margin-bottom: 32px; max-width: 580px;">
-        We specialize in men's health. One licensed provider, your labs, and a real conversation. Not a coordinator reading from a tablet. A real, in-person conversation about how you actually feel. If treatment is right for you, you leave with a plan the same day.
+      <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); line-height: 1.7; margin-bottom: 32px; margin-top: 0; max-width: 580px;">
+        We specialize in men's health. One licensed provider, your labs, and
+        a real conversation. Not a coordinator reading from a tablet. A real,
+        in-person conversation about how you actually feel. If treatment is
+        right for you, you leave with a plan the same day.
       </p>
 
       <!-- Testimonial card — white with shadow -->
-      <div style="background: var(--cro-surface-primary); border: 1px solid rgba(11,16,41,0.10); border-radius: var(--cro-card-radius); box-shadow: var(--shadow-card); padding: 32px; margin-bottom: 28px;">
+      <div style="background: var(--cro-surface-primary, #FFFFFF); border: 1px solid rgba(11,16,41,0.10); border-radius: var(--cro-card-radius, 20px); box-shadow: var(--shadow-card); padding: 32px; margin-bottom: 28px;">
         <!-- Quote icon -->
         <svg
           width="20"
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="var(--orange)"
+          stroke="var(--orange, #E8670A)"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -40,21 +47,28 @@
           <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
           <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
         </svg>
-        <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); font-style: italic; line-height: 1.7; margin-bottom: 16px;">
-          "Saw two GPs who told me my levels were fine. I knew they weren't. Three weeks after starting treatment I was sleeping through the night again. The difference in energy over the next few months was something no standard lab panel ever captured."
+        <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); font-style: italic; line-height: 1.7; margin-bottom: 16px; margin-top: 0;">
+          "Saw two GPs who told me my levels were fine. I knew they weren't.
+          Three weeks after starting treatment I was sleeping through the
+          night again. The difference in energy over the next few months was
+          something no standard lab panel ever captured."
         </p>
-        <p style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; color: var(--cro-text-on-light); margin-bottom: 4px;">
+        <p style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; color: var(--cro-text-on-light, #0B1029); margin-bottom: 4px; margin-top: 0;">
           James T., 48, Norfolk
         </p>
-        <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray);">
+        <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray, #6B7280); margin: 0;">
           Verified member. Individual results vary.
         </p>
       </div>
 
-      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 36px; background: var(--orange); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
+      <!-- CTA button -->
+      <a
+        href="#hero-form"
+        style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 36px; background: var(--orange, #E8670A); color: var(--white, #FFFFFF); font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta, 0 4px 16px rgba(232,103,10,0.45));"
+      >
         BOOK YOUR 60-MINUTE VISIT
       </a>
-      <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray); margin-top: 12px;">
+      <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray, #6B7280); margin-top: 12px; margin-bottom: 0;">
         No-obligation in-person visit. Individual results vary.
       </p>
     </div>
@@ -67,8 +81,9 @@
         loading="lazy"
         width="800"
         height="600"
-        style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.4);"
+        style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.4); display: block;"
       />
     </div>
+
   </div>
 </section>

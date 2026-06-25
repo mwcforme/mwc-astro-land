@@ -1,5 +1,5 @@
 ---
-const services = [
+const SERVICES = [
   {
     image: '/images/cro/hero-trt-v5.jpg',
     imageAlt: 'Man focused on reclaiming his energy through testosterone therapy',
@@ -13,7 +13,7 @@ const services = [
     imageAlt: 'Man sitting on bed, contemplating erectile challenges',
     eyebrow: "MEN'S SEXUAL HEALTH",
     headline: 'In-person evaluation. Clinical answers.',
-    body: "Erectile challenges have a physiological cause and a medical solution. An in-person evaluation with a Virginia-licensed provider, same-day, with FDA-approved options reviewed on site.",
+    body: 'Erectile challenges have a physiological cause and a medical solution. An in-person evaluation with a Virginia-licensed provider, same-day, with FDA-approved options reviewed on site.',
     cta: 'BOOK IN-PERSON VISIT',
   },
   {
@@ -30,13 +30,17 @@ const services = [
 <section id="services" style="background: var(--cro-surface-primary, #FFFFFF); padding: var(--section-y) 24px;">
   <div style="max-width: var(--maxw); margin: 0 auto;">
 
-    <!-- Eyebrow + Heading + Subhead -->
+    <!-- Eyebrow -->
+    <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow, 0.8125rem); font-weight: 700; letter-spacing: var(--ls-eyebrow, 0.14em); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px; text-align: center;">INTEGRATED CARE</p>
+
+    <!-- Heading -->
     <div style="text-align: center; margin-bottom: 16px;">
-      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow, 0.8125rem); font-weight: 700; letter-spacing: var(--ls-eyebrow, 0.14em); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px;">INTEGRATED CARE</p>
       <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); color: var(--cro-text-on-light, #0B1029); text-transform: uppercase; line-height: var(--lh-heading, 1.05); margin: 0;">
         ONE PROVIDER.<br />THREE CONCERNS.
       </h2>
     </div>
+
+    <!-- Subhead -->
     <div style="margin-bottom: 48px; text-align: center;">
       <p style="font-family: var(--font-body); font-size: clamp(15px, 1.5vw, 17px); color: var(--cro-text-body, #374151); line-height: var(--lh-body, 1.65); max-width: 640px; margin: 0 auto;">
         Most men treat these separately. We handle all three in a single
@@ -47,10 +51,10 @@ const services = [
 
     <!-- Cards grid -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-      {services.map((svc) => (
+      {SERVICES.map((svc) => (
         <div
           class="cro-service-card"
-          style="background: #FFFFFF; border-radius: var(--radius, 16px); border: 1px solid rgba(11,16,41,0.10); box-shadow: 0 4px 16px rgba(11,16,41,0.08); overflow: hidden; display: flex; flex-direction: column; min-height: 420px;"
+          style="background: var(--white, #FFFFFF); border-radius: var(--radius, 16px); border: 1px solid rgba(11,16,41,0.10); box-shadow: 0 4px 16px rgba(11,16,41,0.08); overflow: hidden; display: flex; flex-direction: column; min-height: 420px;"
         >
           <!-- Photo panel -->
           <div style="height: 220px; position: relative; overflow: hidden;">
@@ -67,18 +71,18 @@ const services = [
 
           <!-- Card body -->
           <div style="padding: 32px; display: flex; flex-direction: column; flex: 1;">
-            <p style="font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange, #E8670A); margin-bottom: 8px; margin-top: 0;">
+            <p style="font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 8px;">
               {svc.eyebrow}
             </p>
-            <h3 style="font-family: var(--font-display); font-size: var(--fs-h3, clamp(1.125rem, 2vw, 1.5rem)); font-weight: 700; color: var(--navy, #0B1029); text-transform: uppercase; line-height: 1.15; margin-bottom: 12px; margin-top: 0;">
+            <h3 style="font-family: var(--font-display); font-size: var(--fs-h3, clamp(1.125rem, 2vw, 1.5rem)); font-weight: 700; color: var(--navy, #0B1029); text-transform: uppercase; line-height: 1.15; margin: 0 0 12px;">
               {svc.headline}
             </h3>
-            <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); line-height: 1.6; margin-bottom: 24px; margin-top: 0; flex: 1;">
+            <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); line-height: 1.6; margin: 0 0 24px; flex: 1;">
               {svc.body}
             </p>
             <a
               href="#hero-form"
-              style="display: flex; align-items: center; justify-content: center; height: 52px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-btn, 12px); text-decoration: none; width: 100%; box-shadow: 0 4px 16px rgba(232,103,10,0.45);"
+              style="display: flex; align-items: center; justify-content: center; height: 52px; background: var(--orange, #E8670A); color: var(--white, #FFFFFF); font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-btn, 12px); text-decoration: none; width: 100%; box-shadow: 0 4px 16px rgba(232,103,10,0.45);"
             >
               {svc.cta}
             </a>
@@ -86,5 +90,6 @@ const services = [
         </div>
       ))}
     </div>
+
   </div>
 </section>

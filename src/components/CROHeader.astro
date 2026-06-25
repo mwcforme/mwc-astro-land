@@ -1,12 +1,17 @@
 ---
 ---
 
-<header style="position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 4vw, 32px); background: rgba(11,16,41,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+<header
+  id="cro-header"
+  style="position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 4vw, 32px); transition: background 0.3s ease, backdrop-filter 0.3s ease; background: rgba(11,16,41,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-bottom: 1px solid transparent;"
+>
   <!-- Logo -->
   <a href="/" style="display: flex; align-items: center; flex-shrink: 0; text-decoration: none;">
     <img
       src="/logos/Text_Logo_white.webp"
       alt="Men's Wellness Centers"
+      width="160"
+      height="auto"
       style="width: 160px; height: auto; display: block;"
     />
   </a>
@@ -33,7 +38,7 @@
     <div class="cta-desktop-only">
       <a
         href="#hero-form"
-        style="display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 24px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 9999px; text-decoration: none; white-space: nowrap;"
+        style="display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 9999px; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 14px rgba(232,103,10,0.3);"
       >
         BOOK VISIT
       </a>
@@ -43,3 +48,19 @@
 
 <!-- Spacer for fixed header -->
 <div style="height: 64px;" aria-hidden="true"></div>
+
+<script>
+  // Scroll-aware header: gain backdrop blur + opacity after 100px
+  const header = document.getElementById('cro-header');
+  if (header) {
+    const onScroll = () => {
+      const scrolled = window.scrollY > 100;
+      header.style.background = scrolled ? 'rgba(11,16,41,0.95)' : 'rgba(11,16,41,0.6)';
+      header.style.backdropFilter = scrolled ? 'blur(12px)' : 'blur(4px)';
+      header.style.webkitBackdropFilter = scrolled ? 'blur(12px)' : 'blur(4px)';
+      header.style.borderBottom = scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

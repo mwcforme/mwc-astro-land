@@ -1,5 +1,5 @@
 ---
-const steps = [
+const STEPS = [
   {
     number: 1,
     title: 'Book Online In Under 5 Minutes',
@@ -9,7 +9,7 @@ const steps = [
   {
     number: 2,
     title: 'A Provider Who Actually Explains Your Labs',
-    description: 'A licensed provider who specializes in men\'s health sits with you, goes over every number, and tells you exactly what\'s driving your symptoms.',
+    description: "A licensed provider who specializes in men's health sits with you, goes over every number, and tells you exactly what's driving your symptoms.",
     isLast: false,
   },
   {
@@ -21,31 +21,34 @@ const steps = [
 ];
 ---
 
-<section id="how-it-works" style="background: var(--cro-surface-secondary); padding: var(--section-y) 24px;">
+<section id="how-it-works" style="background: var(--cro-surface-secondary, #ECEAE6); padding: var(--section-y) 24px;">
   <div style="max-width: 720px; margin: 0 auto;">
-    <!-- Eyebrow + Heading -->
-    <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange); margin: 0 0 12px; text-align: center;">THE PROCESS</p>
+
+    <!-- Eyebrow -->
+    <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow, 0.8125rem); font-weight: 700; letter-spacing: var(--ls-eyebrow, 0.14em); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px; text-align: center;">THE PROCESS</p>
+
+    <!-- Heading -->
     <div style="text-align: center; margin-bottom: 48px;">
-      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--cro-text-on-light); margin: 0;">
+      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1, clamp(2rem, 4vw, 3.25rem)); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--cro-text-on-light, #0B1029); margin: 0;">
         HERE'S HOW IT WORKS IN ONE VISIT
       </h2>
     </div>
 
     <!-- Steps -->
     <div style="display: flex; flex-direction: column; gap: 40px; margin-bottom: 48px;">
-      {steps.map((step) => (
-        <div style="display: flex; gap: 20px; align-items: flex-start; background: var(--white); border-radius: var(--cro-card-radius); border: 1px solid rgba(11,16,41,0.10); box-shadow: var(--shadow-card); padding: 28px 32px;">
+      {STEPS.map((step) => (
+        <div style={`display: flex; gap: 20px; align-items: flex-start; background: var(--white, #FFFFFF); border-radius: var(--cro-card-radius, 20px); border: 1px solid rgba(11,16,41,0.10); box-shadow: var(--shadow-card); padding: 28px 32px;`}>
           <!-- Numbered circle -->
-          <div style={`width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background: ${step.isLast ? 'var(--orange)' : 'var(--navy)'}; color: var(--white); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; flex-shrink: 0; ${step.isLast ? 'box-shadow: 0 0 0 4px rgba(232,103,10,0.20), 0 8px 24px rgba(232,103,10,0.30);' : ''}`}>
+          <div style={`width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background: ${step.isLast ? 'var(--orange, #E8670A)' : 'var(--navy, #0B1029)'}; color: var(--white, #FFFFFF); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; flex-shrink: 0;${step.isLast ? ' box-shadow: 0 0 0 4px rgba(232,103,10,0.20), 0 8px 24px rgba(232,103,10,0.30);' : ''}`}>
             {step.number}
           </div>
 
           <!-- Text -->
           <div>
-            <h3 style="font-family: var(--font-body); font-weight: 700; font-size: 1.125rem; color: var(--navy); margin-bottom: 6px; margin-top: 0;">
+            <h3 style="font-family: var(--font-body); font-weight: 700; font-size: 1.125rem; color: var(--navy, #0B1029); margin-bottom: 6px; margin-top: 0;">
               {step.title}
             </h3>
-            <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.65; margin: 0;">
+            <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); line-height: 1.65; margin: 0;">
               {step.description}
             </p>
           </div>
@@ -55,9 +58,13 @@ const steps = [
 
     <!-- CTA -->
     <div style="text-align: center;">
-      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; background: var(--orange); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
-        BOOK MY NO-COST VISIT
+      <a
+        href="#hero-form"
+        style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; background: var(--orange, #E8670A); color: var(--white, #FFFFFF); font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta, 0 4px 16px rgba(232,103,10,0.45));"
+      >
+        BOOK YOUR 60-MINUTE VISIT
       </a>
     </div>
+
   </div>
 </section>

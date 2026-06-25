@@ -15,8 +15,8 @@ const SYMPTOM_BULLETS = [
   id="hero"
   style="position: relative; background: var(--navy, #0B1029); display: flex; align-items: center; overflow: hidden; padding: clamp(16px, 3vw, 64px) clamp(16px, 4vw, 32px) clamp(32px, 5vw, 80px);"
 >
-  <!-- Background portrait image -->
-  <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; overflow: hidden;">
+  <!-- Hero background portrait — faded, right-aligned -->
+  <div aria-hidden="true" class="hero-bg-portrait" style="position: absolute; inset: 0; z-index: 0; overflow: hidden;">
     <img
       src="/images/cro/hero-portrait-v3.jpg"
       alt=""
@@ -45,7 +45,7 @@ const SYMPTOM_BULLETS = [
       <!-- H1 -->
       <h1
         class="cro-hero-headline"
-        style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; line-height: 1.08; margin: 0; color: #FFFFFF;"
+        style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; line-height: 1.08; margin: 0; color: var(--white, #FFFFFF);"
       >
         YOU'RE NOT JUST "AGING."<br />
         <span style="color: var(--orange, #E8670A);">LET'S FIND THE REAL ISSUE.</span>
@@ -68,7 +68,7 @@ const SYMPTOM_BULLETS = [
         <span>4.9 · 191 verified Google reviews</span>
       </a>
 
-      <!-- Body paragraph — hidden on mobile -->
+      <!-- Body paragraph — hidden on mobile to keep form visible -->
       <p
         class="hero-body-text"
         style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 1.7; color: #FFFFFF; margin-top: 16px; margin-bottom: 16px;"
@@ -78,7 +78,7 @@ const SYMPTOM_BULLETS = [
         This is all we do, and that focus is the difference.
       </p>
 
-      <!-- Symptom bullets — last 2 hidden on mobile -->
+      <!-- Symptom bullets — show only 3 on mobile -->
       <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0;">
         {SYMPTOM_BULLETS.map((text, i) => (
           <li
@@ -107,7 +107,7 @@ const SYMPTOM_BULLETS = [
 
     <!-- Right column: Form -->
     <div id="hero-form" class="cro-hero-form-col">
-      <HeroLeadForm client:load />
+      <HeroLeadForm client:load variant="cro" formId="hero-trt" ctaLabel="BOOK MY 60-MINUTE VISIT" />
     </div>
   </div>
 </section>
