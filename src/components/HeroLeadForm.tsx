@@ -37,10 +37,23 @@ export default function HeroLeadForm() {
     if (!isValid) return;
     setSubmitting(true);
     try {
-      const res = await fetch('/api/ghl', {
+      const [first, ...rest] = name.trim().split(/\s+/);
+      const res = await fetch('https://book.menswellnesscenters.com/api/ghl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), phone: phoneDigits, location }),
+        body: JSON.stringify({
+          path: '/contacts/upsert',
+          method: 'POST',
+          body: {
+            firstName: first || 'Guest',
+            lastName: rest.join(' ') || undefined,
+            phone: '+1' + phoneDigits,
+            source: 'astro-landing-page',
+            customFields: [
+              { id: 'Cou856tOhaxW62vwehVI', fieldValue: location },
+            ],
+          },
+        }),
       });
       if (res.ok) {
         setSubmitted(true);
