@@ -1,48 +1,62 @@
 ---
-const SERVICES = [
+/**
+ * CROServices — "One Provider. Three Concerns."
+ * Three service cards (TRT, ED, Weight Loss) with images, copy, and CTAs.
+ */
+
+interface ServiceCard {
+  image: string;
+  imageAlt: string;
+  eyebrow: string;
+  headline: string;
+  body: string;
+  cta: string;
+}
+
+const SERVICES: ServiceCard[] = [
   {
-    image: '/images/cro/hero-trt-v5.jpg',
-    imageAlt: 'Man focused on reclaiming his energy through testosterone therapy',
+    image: "/images/cro/hero-trt-v5.jpg",
+    imageAlt: "Man focused on reclaiming his energy through testosterone therapy",
     eyebrow: "MEN'S HORMONE HEALTH",
-    headline: 'Your labs, reviewed by your provider.',
-    body: 'A Virginia-licensed provider reviews your bloodwork on-site and builds a protocol around your numbers. Seen this week. No referrals. No template protocols.',
-    cta: 'BOOK IN-PERSON VISIT →',
+    headline: "Your labs, reviewed by your provider.",
+    body: "A Virginia-licensed provider reviews your bloodwork on-site and builds a protocol around your numbers. Seen this week. No referrals. No template protocols.",
+    cta: "BOOK IN-PERSON VISIT",
   },
   {
-    image: '/images/cro/hero-ed-v2.jpg',
-    imageAlt: 'Man sitting on bed, contemplating erectile challenges',
+    image: "/images/cro/hero-ed-v2.jpg",
+    imageAlt: "Man sitting on bed, contemplating erectile challenges",
     eyebrow: "MEN'S SEXUAL HEALTH",
-    headline: 'In-person evaluation. Clinical answers.',
-    body: 'Erectile challenges have a physiological cause and a medical solution. An in-person evaluation with a Virginia-licensed provider, same-day, with FDA-approved options reviewed on site.',
-    cta: 'BOOK IN-PERSON VISIT →',
+    headline: "In-person evaluation. Clinical answers.",
+    body: "Erectile challenges have a physiological cause and a medical solution. An in-person evaluation with a Virginia-licensed provider, same-day, with FDA-approved options reviewed on site.",
+    cta: "BOOK IN-PERSON VISIT",
   },
   {
-    image: '/images/cro/hero-wl-v3.jpg',
-    imageAlt: 'GLP-1 injection for medical weight loss',
-    eyebrow: 'MEDICAL WEIGHT LOSS',
-    headline: 'Lab-guided protocol. Ongoing care.',
-    body: 'GLP-1 therapy prescribed and monitored by a Virginia provider, not a call-center intake. Labs reviewed at every visit. One provider, one plan, adjusted as you progress.',
-    cta: 'BOOK IN-PERSON VISIT →',
+    image: "/images/cro/hero-wl-v3.jpg",
+    imageAlt: "GLP-1 injection for medical weight loss",
+    eyebrow: "MEDICAL WEIGHT LOSS",
+    headline: "Lab-guided protocol. Ongoing care.",
+    body: "GLP-1 therapy prescribed and monitored by a Virginia provider, not a call-center intake. Labs reviewed at every visit. One provider, one plan, adjusted as you progress.",
+    cta: "BOOK IN-PERSON VISIT",
   },
 ];
 ---
 
-<section id="services" style="background: var(--cro-surface-primary, #FFFFFF); padding: var(--section-y) 24px;">
+<section
+  id="services"
+  style="background: var(--cro-surface-primary); padding: var(--section-y) 24px;"
+>
   <div style="max-width: var(--maxw); margin: 0 auto;">
-
-    <!-- Eyebrow -->
-    <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow, 0.8125rem); font-weight: 700; letter-spacing: var(--ls-eyebrow, 0.14em); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px; text-align: center;">INTEGRATED CARE</p>
-
-    <!-- Heading -->
+    <!-- Eyebrow + Heading + Subhead -->
+    <p style="font-family: var(--font-body); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; text-align: center;">
+      INTEGRATED CARE
+    </p>
     <div style="text-align: center; margin-bottom: 16px;">
-      <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); color: var(--cro-text-on-light, #0B1029); text-transform: uppercase; line-height: var(--lh-heading, 1.05); margin: 0;">
+      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--navy); margin: 0;">
         ONE PROVIDER.<br />THREE CONCERNS.
       </h2>
     </div>
-
-    <!-- Subhead -->
-    <div style="margin-bottom: 48px; text-align: center;">
-      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.5vw, 17px); color: var(--cro-text-body, #374151); line-height: var(--lh-body, 1.65); max-width: 640px; margin: 0 auto;">
+    <div style="margin-bottom: 48px;">
+      <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.6; text-align: center; max-width: 640px; margin: 0 auto;">
         Most men treat these separately. We handle all three in a single
         in-person visit. Same provider. Same day. One plan built around your
         labs.
@@ -50,11 +64,13 @@ const SERVICES = [
     </div>
 
     <!-- Cards grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;"
+    >
       {SERVICES.map((svc) => (
         <div
           class="cro-service-card"
-          style="background: var(--white, #FFFFFF); border-radius: var(--radius, 16px); border: 1px solid rgba(11,16,41,0.10); box-shadow: 0 4px 16px rgba(11,16,41,0.08); overflow: hidden; display: flex; flex-direction: column; min-height: 420px;"
+          style="background: var(--white); border-radius: var(--radius); border: 1px solid rgba(11,16,41,0.10); box-shadow: 0 4px 16px rgba(11,16,41,0.08); overflow: hidden; display: flex; flex-direction: column; min-height: 420px;"
         >
           <!-- Photo panel -->
           <div style="height: 220px; position: relative; overflow: hidden;">
@@ -63,26 +79,30 @@ const SERVICES = [
               alt={svc.imageAlt}
               loading="lazy"
               decoding="async"
-              width="640"
-              height="480"
-              style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;"
+              width={640}
+              height={480}
+              style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%;"
             />
           </div>
 
           <!-- Card body -->
           <div style="padding: 32px; display: flex; flex-direction: column; flex: 1;">
-            <p style="font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 8px;">
+            <p style="font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px;">
               {svc.eyebrow}
             </p>
-            <h3 style="font-family: var(--font-display); font-size: var(--fs-h3, clamp(1.125rem, 2vw, 1.5rem)); font-weight: 700; color: var(--navy, #0B1029); text-transform: uppercase; line-height: 1.15; margin: 0 0 12px;">
+            <h3
+              style="font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 700; color: var(--navy); text-transform: uppercase; line-height: 1.15; margin-bottom: 12px;"
+            >
               {svc.headline}
             </h3>
-            <p style="font-family: var(--font-body); font-size: var(--fs-body, clamp(1rem, 1.2vw, 1.125rem)); color: var(--cro-text-body, #374151); line-height: 1.6; margin: 0 0 24px; flex: 1;">
+            <p
+              style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.6; margin-bottom: 24px; flex: 1;"
+            >
               {svc.body}
             </p>
             <a
               href="#hero-form"
-              style="display: flex; align-items: center; justify-content: center; height: 52px; background: var(--orange, #E8670A); color: var(--white, #FFFFFF); font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-btn, 12px); text-decoration: none; width: 100%; box-shadow: 0 4px 16px rgba(232,103,10,0.45);"
+              style="display: block; width: 100%; background: var(--orange); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; text-decoration: none; padding: 14px 24px; border-radius: var(--radius-btn, 6px); border: none; cursor: pointer;"
             >
               {svc.cta}
             </a>
@@ -90,6 +110,5 @@ const SERVICES = [
         </div>
       ))}
     </div>
-
   </div>
 </section>

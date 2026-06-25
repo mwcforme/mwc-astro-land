@@ -1,39 +1,59 @@
 ---
-const rows = [
-  { feature: 'Real In-Person Care',  mwc: 'check', telehealth: 'x',     traditional: 'check' },
-  { feature: 'Provider-Led Visits',  mwc: 'check', telehealth: 'x',     traditional: 'check' },
-  { feature: "Men's Health Experts", mwc: 'check', telehealth: 'x',     traditional: 'dash'  },
-  { feature: 'Root-Cause Treatment', mwc: 'check', telehealth: 'x',     traditional: 'x'     },
-  { feature: 'In-Center Labs',       mwc: 'check', telehealth: 'x',     traditional: 'dash'  },
-  { feature: '60-Minute Visit',      mwc: 'check', telehealth: 'x',     traditional: 'x'     },
-  { feature: 'Transparent Pricing',  mwc: 'check', telehealth: 'check', traditional: 'x'     },
-  { feature: 'Ongoing Monitoring',   mwc: 'check', telehealth: 'x',     traditional: 'dash'  },
-];
+/**
+ * CROComparisonTable — "MWC vs. The Rest" comparison section.
+ * Cream background wrapping a navy card with left CTA + right comparison table.
+ * Responsive: stacks on mobile, table becomes fixed-layout.
+ */
 
-function iconSvg(val: string) {
-  if (val === 'check') return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D9F5C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes"><polyline points="20 6 9 17 4 12"/></svg>`;
-  if (val === 'x')     return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E87070" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="No"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
-  return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Limited"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
+type CellVal = "check" | "x" | "dash";
+
+interface Row {
+  feature: string;
+  mwc: CellVal;
+  telehealth: CellVal;
+  traditional: CellVal;
 }
+
+const ROWS: Row[] = [
+  { feature: "Real In-Person Care",  mwc: "check", telehealth: "x",     traditional: "check" },
+  { feature: "Provider-Led Visits",  mwc: "check", telehealth: "x",     traditional: "check" },
+  { feature: "Men's Health Experts", mwc: "check", telehealth: "x",     traditional: "dash"  },
+  { feature: "Root-Cause Treatment", mwc: "check", telehealth: "x",     traditional: "x"     },
+  { feature: "In-Center Labs",       mwc: "check", telehealth: "x",     traditional: "dash"  },
+  { feature: "60-Minute Visit",      mwc: "check", telehealth: "x",     traditional: "x"     },
+  { feature: "Transparent Pricing",  mwc: "check", telehealth: "check", traditional: "x"     },
+  { feature: "Ongoing Monitoring",   mwc: "check", telehealth: "x",     traditional: "dash"  },
+];
 ---
 
-<section id="comparison" style="background: var(--cro-surface-secondary); padding: var(--section-y) 24px;">
+<section
+  id="comparison"
+  style="background: var(--cro-surface-secondary); padding: var(--section-y) 24px;"
+>
   <div style="max-width: var(--maxw); margin: 0 auto;">
-    <div style="background: var(--navy); border-radius: var(--cro-card-radius); overflow: hidden;">
-
+    <div
+      style="background: var(--navy); border-radius: var(--cro-card-radius); overflow: hidden;"
+    >
       <div class="cro-comp-inner">
         <!-- Left: headline + CTA -->
-        <div style="padding: clamp(32px, 5vw, 56px); display: flex; flex-direction: column; justify-content: center; gap: 20px;">
-          <h2 style="font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 700; color: var(--white); text-transform: uppercase; line-height: 1.15; margin: 0;">
-            MEN&rsquo;S WELLNESS CENTERS <span style="color: var(--orange);">vs.</span> THE REST
+        <div
+          style="padding: clamp(32px, 5vw, 56px); display: flex; flex-direction: column; justify-content: center; gap: 20px;"
+        >
+          <h2
+            style="font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 700; color: var(--white); text-transform: uppercase; line-height: 1.15; margin: 0;"
+          >
+            MEN&rsquo;S WELLNESS CENTERS{" "}
+            <span style="color: var(--orange);">vs.</span> THE REST
           </h2>
-          <p style="font-family: var(--font-body); font-size: var(--fs-body); color: rgba(255,255,255,0.65); margin: 0; line-height: 1.6;">
+          <p
+            style="font-family: var(--font-body); font-size: var(--fs-body); color: rgba(255,255,255,0.65); margin: 0; line-height: 1.6;"
+          >
             Not all men&rsquo;s health providers are created equal. Here&rsquo;s how we compare.
           </p>
           <div style="margin-top: 8px;">
             <a
               href="#hero-form"
-              style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 32px; background: var(--orange); color: #FFFFFF; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);"
+              style="display: inline-block; background: var(--orange); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 16px 32px; border-radius: var(--radius-btn, 6px);"
             >
               BOOK YOUR 60-MINUTE VISIT
             </a>
@@ -42,46 +62,111 @@ function iconSvg(val: string) {
 
         <!-- Right: table -->
         <div style="padding: clamp(16px, 3vw, 40px); overflow-x: auto;">
-          <table class="cro-comp-table" style="width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 14px;">
+          <table
+            class="cro-comp-table"
+            style="width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 14px;"
+          >
             <thead>
               <tr>
-                <th style="text-align: left; padding: 12px 14px; color: rgba(255,255,255,0.55); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(255,255,255,0.10);">Feature</th>
-                <th style="text-align: center; padding: 12px 14px; background: var(--cream); border-radius: 12px 12px 0 0; border-bottom: 1px solid rgba(255,255,255,0.10); min-width: 80px;">
-                  <img src="/logos/mwc-logo-navy.webp" alt="Men's Wellness Centers" style="height: 32px; display: inline-block;" />
+                <th
+                  style="text-align: left; padding: 12px 14px; color: rgba(255,255,255,0.55); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(255,255,255,0.10);"
+                >
+                  Feature
                 </th>
-                <th style="text-align: center; padding: 12px 14px; color: rgba(255,255,255,0.55); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.10); min-width: 80px;">
+                <th
+                  style="text-align: center; padding: 12px 14px; background: var(--cream); border-radius: 12px 12px 0 0; border-bottom: 1px solid rgba(255,255,255,0.10); min-width: 80px;"
+                >
+                  <img
+                    src="/logos/mwc-logo-navy.webp"
+                    alt="Men's Wellness Centers"
+                    style="height: 32px; display: inline-block;"
+                  />
+                </th>
+                <th
+                  style="text-align: center; padding: 12px 14px; color: rgba(255,255,255,0.55); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.10); min-width: 80px;"
+                >
                   <span class="cro-comp-col-label">Telehealth Brands</span>
-                  <span class="cro-comp-col-label-short">Telehealth</span>
+                  <span class="cro-comp-col-label-short" style="display: none;">Telehealth</span>
                 </th>
-                <th style="text-align: center; padding: 12px 14px; color: rgba(255,255,255,0.55); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; background: var(--navy-light); border-radius: 0 12px 0 0; border-bottom: 1px solid rgba(255,255,255,0.10); min-width: 80px;">
+                <th
+                  style="text-align: center; padding: 12px 14px; color: rgba(255,255,255,0.55); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; background: var(--navy-light); border-radius: 0 12px 0 0; border-bottom: 1px solid rgba(255,255,255,0.10); min-width: 80px;"
+                >
                   <span class="cro-comp-col-label">Traditional Medicine</span>
-                  <span class="cro-comp-col-label-short">Traditional</span>
+                  <span class="cro-comp-col-label-short" style="display: none;">Traditional</span>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {rows.map((row, i) => (
+              {ROWS.map((row, i) => (
                 <tr>
-                  <td style={`padding: 12px 14px; color: var(--cream); font-weight: 500; border-bottom: ${i < rows.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none'};`}>{row.feature}</td>
                   <td
-                    style={`text-align: center; padding: 12px 14px; background: var(--cream); border-bottom: ${i < rows.length - 1 ? '1px solid rgba(11,16,41,0.08)' : 'none'}; ${i === rows.length - 1 ? 'border-radius: 0 0 12px 12px;' : ''}`}
-                    set:html={iconSvg(row.mwc)}
-                  />
+                    style={`padding: 12px 14px; color: var(--cream); font-weight: 500; border-bottom: ${i < ROWS.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none"};`}
+                  >
+                    {row.feature}
+                  </td>
                   <td
-                    style={`text-align: center; padding: 12px 14px; background: var(--navy-mid); border-bottom: ${i < rows.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none'};`}
-                    set:html={iconSvg(row.telehealth)}
-                  />
+                    style={`text-align: center; padding: 12px 14px; background: var(--cream); border-bottom: ${i < ROWS.length - 1 ? "1px solid rgba(11,16,41,0.08)" : "none"}; ${i === ROWS.length - 1 ? "border-radius: 0 0 12px 12px;" : ""}`}
+                  >
+                    {row.mwc === "check" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--check-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                    {row.mwc === "x" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E87070" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="No">
+                        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    )}
+                    {row.mwc === "dash" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" aria-label="Limited">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    )}
+                  </td>
                   <td
-                    style={`text-align: center; padding: 12px 14px; background: var(--navy-light); border-bottom: ${i < rows.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none'}; ${i === rows.length - 1 ? 'border-radius: 0 0 12px 0;' : ''}`}
-                    set:html={iconSvg(row.traditional)}
-                  />
+                    style={`text-align: center; padding: 12px 14px; background: var(--navy-mid); border-bottom: ${i < ROWS.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none"};`}
+                  >
+                    {row.telehealth === "check" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--check-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                    {row.telehealth === "x" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E87070" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="No">
+                        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    )}
+                    {row.telehealth === "dash" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" aria-label="Limited">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    )}
+                  </td>
+                  <td
+                    style={`text-align: center; padding: 12px 14px; background: var(--navy-light); border-bottom: ${i < ROWS.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none"}; ${i === ROWS.length - 1 ? "border-radius: 0 0 12px 0;" : ""}`}
+                  >
+                    {row.traditional === "check" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--check-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                    {row.traditional === "x" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E87070" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="No">
+                        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    )}
+                    {row.traditional === "dash" && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" aria-label="Limited">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -91,16 +176,13 @@ function iconSvg(val: string) {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
   }
-  .cro-comp-col-label-short {
-    display: none;
-  }
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .cro-comp-inner {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
     }
   }
   @media (max-width: 480px) {
-    .cro-comp-col-label { display: none; }
-    .cro-comp-col-label-short { display: inline; }
+    .cro-comp-col-label { display: none !important; }
+    .cro-comp-col-label-short { display: inline !important; }
   }
 </style>

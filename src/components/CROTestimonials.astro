@@ -1,5 +1,9 @@
 ---
-import { TESTIMONIALS, GBP_REVIEWS_URL } from '../data/testimonials';
+/**
+ * CROTestimonials — Scrollable carousel of verified Google reviews.
+ * CSS overflow-x scroll with snap points. No drag library needed.
+ */
+import { TESTIMONIALS, GBP_REVIEWS_URL } from "../data/testimonials";
 
 const CARD_WIDTH = 340;
 const CARD_GAP = 20;
@@ -11,26 +15,36 @@ const CARD_GAP = 20;
 >
   <div style="max-width: var(--maxw); margin: 0 auto; padding: 0 24px;">
     <!-- Eyebrow -->
-    <p style="font-family: var(--font-body); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); margin-bottom: 12px; text-align: center;">
+    <p
+      style="font-family: var(--font-body); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); margin-bottom: 12px; text-align: center;"
+    >
       MEMBER OUTCOMES
     </p>
 
     <!-- Heading -->
-    <h2 style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; text-align: center; color: var(--navy); margin-bottom: 20px;">
+    <h2
+      style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; text-align: center; color: var(--navy); margin-bottom: 20px;"
+    >
       REAL MEMBERS. REAL EXPERIENCES.
     </h2>
 
     <!-- Aggregate rating -->
-    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 48px; flex-wrap: wrap;">
+    <div
+      style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 48px; flex-wrap: wrap;"
+    >
       <!-- Stars -->
-      <span style="display: flex; gap: 2px;">
-        {Array.from({ length: 5 }).map(() => (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--orange)" stroke="var(--orange)" stroke-width="0" aria-hidden="true">
-            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+      <div style="display: flex; gap: 2px;">
+        {[0,1,2,3,4].map(() => (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--orange)" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
           </svg>
         ))}
+      </div>
+      <span
+        style="font-family: var(--font-body); font-weight: 700; font-size: 1.125rem; color: var(--navy);"
+      >
+        4.9
       </span>
-      <span style="font-family: var(--font-body); font-weight: 700; font-size: 1.125rem; color: var(--navy);">4.9</span>
       <a
         href={GBP_REVIEWS_URL}
         target="_blank"
@@ -47,64 +61,71 @@ const CARD_GAP = 20;
     class="cro-testimonials-track"
     style={`max-width: var(--maxw); margin: 0 auto; padding: 0 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; display: flex; gap: ${CARD_GAP}px; padding-bottom: 8px;`}
   >
-    <style>{`
-      .cro-testimonials-track::-webkit-scrollbar { display: none; }
-    `}</style>
-
     {TESTIMONIALS.map((t) => (
       <div
-        style={`min-width: ${CARD_WIDTH}px; max-width: ${CARD_WIDTH}px; scroll-snap-align: start; background: var(--white); border-radius: var(--radius); border: 1px solid rgba(11,16,41,0.08); box-shadow: 0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06); padding: 24px; display: flex; flex-direction: column; user-select: none;`}
+        style={`min-width: ${CARD_WIDTH}px; max-width: ${CARD_WIDTH}px; scroll-snap-align: start; background: var(--white); border-radius: var(--radius); border: var(--card-border); box-shadow: 0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06); padding: 24px; display: flex; flex-direction: column; user-select: none;`}
       >
         <!-- Header: photo + name + time + Google G -->
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <div
+          style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;"
+        >
           {t.photoUrl && (
             <img
               src={t.photoUrl}
               alt={t.name}
               loading="lazy"
-              width="44"
-              height="44"
+              width={44}
+              height={44}
               style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;"
             />
           )}
           <div style="flex: 1; min-width: 0;">
-            <p style="font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; color: var(--navy); line-height: 1.2; margin: 0 0 2px;">
+            <p
+              style="font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; color: var(--navy); line-height: 1.2; margin: 0;"
+            >
               {t.name}
             </p>
-            <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray); margin: 0;">
+            <p
+              style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray); margin: 0;"
+            >
               {t.relativeTime}
             </p>
           </div>
           <!-- Google G SVG -->
           <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" style="flex-shrink: 0;">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-            <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 019.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.998 23.998 0 000 24c0 3.77.9 7.35 2.56 10.56l7.97-5.97z"/>
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 5.97C6.51 42.62 14.62 48 24 48z"/>
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+            <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 019.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.998 23.998 0 000 24c0 3.77.9 7.35 2.56 10.56l7.97-5.97z" />
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 5.97C6.51 42.62 14.62 48 24 48z" />
           </svg>
         </div>
 
         <!-- Stars -->
-        <div style="display: flex; gap: 2px; margin-bottom: 12px;">
-          {Array.from({ length: 5 }).map(() => (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--orange)" stroke="var(--orange)" stroke-width="0" aria-hidden="true">
-              <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+        <div style="margin-bottom: 12px; display: flex; gap: 2px;">
+          {[0,1,2,3,4].map(() => (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--orange)" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
           ))}
         </div>
 
         <!-- Quote -->
-        <p style="font-family: var(--font-body); font-size: 0.875rem; color: var(--cro-text-body); line-height: 1.6; flex: 1; margin-bottom: 16px;">
-          "{t.quote}"
+        <p
+          style="font-family: var(--font-body); font-size: 0.875rem; color: var(--cro-text-body); line-height: 1.6; flex: 1; margin-bottom: 16px;"
+        >
+          &ldquo;{t.quote}&rdquo;
         </p>
 
         <!-- Verified badge -->
         <div style="display: flex; align-items: center; gap: 6px;">
+          <!-- CheckCircle icon -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
           </svg>
-          <span style="font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: #4285F4;">
+          <span
+            style="font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: #4285F4;"
+          >
             Verified Google Review
           </span>
         </div>
@@ -113,8 +134,12 @@ const CARD_GAP = 20;
   </div>
 
   <!-- Footer -->
-  <div style="max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 0; text-align: center;">
-    <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray); margin-bottom: 8px;">
+  <div
+    style="max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 0; text-align: center;"
+  >
+    <p
+      style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray); margin-bottom: 8px;"
+    >
       Reviews reflect individual experiences. Individual results vary.
     </p>
     <a
@@ -123,15 +148,21 @@ const CARD_GAP = 20;
       rel="noopener noreferrer"
       style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; color: var(--orange); text-decoration: none; margin-bottom: 24px; display: inline-block;"
     >
-      See all 191 reviews →
+      See all 191 reviews &rarr;
     </a>
     <div style="margin-top: 20px;">
       <a
         href="#hero-form"
-        style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; background: var(--orange); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);"
+        style="display: inline-block; background: var(--orange); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 16px 32px; border-radius: var(--radius-btn, 6px);"
       >
         BOOK YOUR 60-MINUTE VISIT
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  .cro-testimonials-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>

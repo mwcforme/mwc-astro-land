@@ -1,27 +1,42 @@
 ---
-const CARDS = [
+/**
+ * CROProviderLed — "Provider-Led. Virginia-Local. Built for Men."
+ * 4-card feature grid on dark navy background.
+ * Desktop: 4 columns. Tablet: 2x2. Mobile: 1 column.
+ */
+
+interface ProviderCard {
+  photo: string;
+  photoAlt: string;
+  title: string;
+  body: string;
+}
+
+const CARDS: ProviderCard[] = [
   {
-    photo: '/assets/lp/doctor-patient-exam.webp',
+    photo: "/assets/lp/doctor-patient-exam.webp",
     photoAlt: "Licensed provider at Men's Wellness Centers",
-    title: 'LICENSED PROVIDERS',
-    body: 'Licensed Virginia providers and nurse practitioners. A real provider, every visit.',
+    title: "LICENSED PROVIDERS",
+    body: "Licensed Virginia providers and nurse practitioners. A real provider, every visit.",
   },
   {
-    photo: '/assets/lp/exam-room-blood-draw.webp',
+    photo: "/assets/lp/exam-room-blood-draw.webp",
     photoAlt: "On-site lab draw at Men's Wellness Centers",
-    title: 'ON-SITE LABS',
-    body: 'CLIA-certified lab in every center. No third-party lab visit, no waiting a week for results.',
+    title: "ON-SITE LABS",
+    body: "CLIA-certified lab in every center. No third-party lab visit, no waiting a week for results.",
   },
   {
-    photo: '/assets/lp/man-confident-gray-hair-earbuds-2.webp',
-    photoAlt: 'Man focused on men\'s wellness',
-    title: 'BUILT FOR MEN',
-    body: 'TRT, ED, and weight loss is all we do. Dedicated focus means faster answers and better outcomes.',
+    photo: "/assets/lp/man-confident-gray-hair-earbuds-2.webp",
+    photoAlt: "Man focused on men's wellness",
+    title: "BUILT FOR MEN",
+    body: "TRT, ED, and weight loss is all we do. Dedicated focus means faster answers and better outcomes.",
   },
 ];
 ---
 
-<section style="background: #0B1029; padding: clamp(48px, 8vw, 80px) clamp(16px, 4vw, 32px);">
+<section
+  style="background: #0B1029; padding: clamp(48px, 8vw, 80px) clamp(16px, 4vw, 32px);"
+>
   <div style="max-width: var(--maxw); margin: 0 auto;">
     <h2
       class="cro-provider-led-headline"
@@ -40,14 +55,18 @@ const CARDS = [
             src={card.photo}
             alt={card.photoAlt}
             loading="lazy"
-            width="80"
-            height="80"
+            width={80}
+            height={80}
             style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0;"
           />
-          <p style="font-family: Oswald, sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #E8670A; margin-top: 16px; margin-bottom: 8px;">
+          <p
+            style="font-family: Oswald, sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #E8670A; margin-top: 16px; margin-bottom: 8px;"
+          >
             {card.title}
           </p>
-          <p style="font-family: Montserrat, sans-serif; font-size: 14px; color: #FFFFFF; line-height: 1.6; margin: 0;">
+          <p
+            style="font-family: Montserrat, sans-serif; font-size: 14px; color: #FFFFFF; line-height: 1.6; margin: 0;"
+          >
             {card.body}
           </p>
         </div>
@@ -57,8 +76,14 @@ const CARDS = [
 </section>
 
 <style>
-  .cro-provider-led-headline { font-size: 32px; }
-  @media (min-width: 1024px) { .cro-provider-led-headline { font-size: 48px; } }
+  .cro-provider-led-headline {
+    font-size: 32px;
+  }
+  @media (min-width: 1024px) {
+    .cro-provider-led-headline {
+      font-size: 48px;
+    }
+  }
 
   .cro-provider-led-grid {
     display: grid;
@@ -66,10 +91,14 @@ const CARDS = [
     gap: 20px;
   }
   @media (min-width: 640px) {
-    .cro-provider-led-grid { grid-template-columns: 1fr 1fr; }
+    .cro-provider-led-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
   @media (min-width: 1024px) {
-    .cro-provider-led-grid { grid-template-columns: repeat(3, 1fr); }
+    .cro-provider-led-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .cro-provider-card {
@@ -77,6 +106,6 @@ const CARDS = [
   }
   .cro-provider-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
 </style>
