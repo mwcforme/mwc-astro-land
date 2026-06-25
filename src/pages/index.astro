@@ -18,7 +18,7 @@ import FAQAccordion from '../components/FAQAccordion';
 import LocationSelector from '../components/LocationSelector';
 import StickyMobileCTA from '../components/StickyMobileCTA';
 
-import { TRT_FAQS } from '../data/faqs';
+import { TRT_FAQS, CRO_EXTRA_FAQS } from '../data/faqs';
 import { LOCATIONS } from '../data/locations';
 import { GBP_REVIEWS_URL } from '../data/testimonials';
 
@@ -91,7 +91,7 @@ const schemaJson = JSON.stringify([faqSchema, clinicSchema]);
     <CROComparisonTable />
     <CROFirstVisit />
     <LocationSelector client:visible locations={LOCATIONS} />
-    <FAQAccordion client:visible faqs={TRT_FAQS} />
+    <FAQAccordion client:visible faqs={[...TRT_FAQS, ...CRO_EXTRA_FAQS]} />
     <CROFinalCTA />
   </main>
   <CROFooter />

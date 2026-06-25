@@ -3,6 +3,17 @@ export interface FaqItem {
   a: string;
 }
 
+export const CRO_EXTRA_FAQS: FaqItem[] = [
+  {
+    q: "Do I need a referral?",
+    a: "No referral needed. Call or book online and come in. We handle all lab work on-site during your first visit. Most men walk out the same day with a clear picture of what their labs mean and, if appropriate, a treatment plan.",
+  },
+  {
+    q: "What if my labs are borderline?",
+    a: "Borderline results are often where men fall through the cracks of standard care. Our providers are trained to look at your full picture, not just whether a number clears a threshold. We discuss what your levels mean in context of your symptoms, history, and goals.",
+  },
+];
+
 export const TRT_FAQS: FaqItem[] = [
   {
     q: "Does insurance cover this?",

@@ -13,9 +13,9 @@ interface CardMeta {
 }
 
 const CARDS: CardMeta[] = [
-  { slug: "richmond-va",       city: "Richmond",      region: "Richmond Area",   driveTime: "5 min from I-64" },
+  { slug: "richmond-va",       city: "Richmond",      region: "Richmond Area",    driveTime: "5 min from I-64" },
   { slug: "virginia-beach-va", city: "Virginia Beach", region: "Coastal Virginia", driveTime: "5 min from I-264" },
-  { slug: "newport-news-va",   city: "Newport News",  region: "Peninsula",       driveTime: "3 min from I-64, Exit 258A" },
+  { slug: "newport-news-va",   city: "Newport News",   region: "Peninsula",        driveTime: "3 min from I-64, Exit 258A" },
 ];
 
 export default function LocationSelector({ locations }: LocationSelectorProps) {
@@ -99,7 +99,7 @@ export default function LocationSelector({ locations }: LocationSelectorProps) {
                     : "1px solid rgba(11,16,41,0.12)",
                   boxShadow: isSelected
                     ? "0 4px 20px rgba(232,103,10,0.15)"
-                    : "0 2px 8px rgba(11,16,41,0.06)",
+                    : "var(--shadow-card, 0 2px 8px rgba(11,16,41,0.06))",
                   padding: "clamp(24px, 3vw, 32px)",
                   cursor: "pointer",
                   position: "relative",

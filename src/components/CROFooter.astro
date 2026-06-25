@@ -1,12 +1,10 @@
 ---
-import { LOCATIONS } from '../data/locations';
-
 const year = new Date().getFullYear();
 
 const FOOTER_LOCATIONS = [
-  { name: 'Richmond',      phone: '(804) 346-4636', tel: 'tel:8043464636' },
+  { name: 'Richmond',       phone: '(804) 346-4636', tel: 'tel:8043464636' },
   { name: 'Virginia Beach', phone: '(757) 612-4428', tel: 'tel:7576124428' },
-  { name: 'Newport News',  phone: '(757) 806-6263', tel: 'tel:7578066263' },
+  { name: 'Newport News',   phone: '(757) 806-6263', tel: 'tel:7578066263' },
 ];
 
 const DISCLAIMERS = [
@@ -22,7 +20,7 @@ const DISCLAIMERS = [
   <div style="padding: 48px 24px 0; max-width: 1200px; margin: 0 auto;">
 
     <!-- Row 1: Logo + Contact -->
-    <div class="footer-top-grid" style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px;">
+    <div class="footer-top-grid" style="display: grid; gap: 40px; margin-bottom: 40px;">
 
       <!-- Brand column -->
       <div>
@@ -35,7 +33,7 @@ const DISCLAIMERS = [
           loading="lazy"
           decoding="async"
         />
-        <p style="font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 12px; line-height: 1.5;">
+        <p style="font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 12px; line-height: 1.5; margin-bottom: 0;">
           &copy; {year} Men&rsquo;s Wellness Centers.<br />
           All rights reserved.
         </p>
@@ -52,7 +50,9 @@ const DISCLAIMERS = [
               href={loc.tel}
               style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; line-height: 1.5;"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange, #E8670A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.43 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange, #E8670A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.43 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
               <span style="font-weight: 600;">{loc.name}:</span>&nbsp;{loc.phone}
             </a>
           ))}
@@ -60,7 +60,10 @@ const DISCLAIMERS = [
             href="mailto:info@menswellnesscenters.com"
             style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; margin-top: 4px;"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange, #E8670A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange, #E8670A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
             info@menswellnesscenters.com
           </a>
         </div>
@@ -68,7 +71,7 @@ const DISCLAIMERS = [
     </div>
 
     <!-- Row 2: Trust badge images -->
-    <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 0;">
+    <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
       <img
         src="/images/badges/clia-color.webp"
         alt="CLIA Certified"
@@ -114,20 +117,24 @@ const DISCLAIMERS = [
     </div>
 
     <!-- Bottom bar: policy links -->
-    <div class="footer-bottom-bar" style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: 24px; padding-top: 16px; padding-bottom: 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.50);">
+    <div class="footer-bottom-bar" style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: 24px; padding-top: 16px; padding-bottom: 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.50);">
       <span class="footer-bar-item">&copy; {year} Men&rsquo;s Wellness Centers</span>
       <a href="/prescribing-policy" class="footer-bar-link">Safety Policy</a>
       <a href="/terms-of-service" class="footer-bar-link">Terms of Service</a>
       <a href="https://menswellnesscenters.com/privacy-practices/" target="_blank" rel="noopener noreferrer" class="footer-bar-link">Privacy Policy</a>
       <a href="https://menswellnesscenters.com/privacy-practices/#hipaa" target="_blank" rel="noopener noreferrer" class="footer-bar-link">HIPAA Notice</a>
     </div>
+
   </div>
 </footer>
 
 <style>
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
   @media (min-width: 768px) {
     .footer-top-grid {
-      grid-template-columns: 1fr 1fr !important;
+      grid-template-columns: 1fr 1fr;
     }
     .footer-bar-item::after,
     .footer-bar-link::after {
