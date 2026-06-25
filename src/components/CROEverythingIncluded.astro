@@ -1,0 +1,68 @@
+---
+const included = [
+  'On-site bloodwork — drawn and analyzed in your visit',
+  'Provider review of your results, same appointment',
+  'Personalized care protocol based on your labs',
+  'Ongoing monitoring and protocol adjustments',
+  'FSA & HSA accepted — no insurance needed',
+  'Same-day availability at 3 Virginia locations',
+];
+
+const notIncluded = [
+  'Referrals or waiting weeks for results',
+  'Generic protocols based on age brackets',
+  'Surprise billing or hidden fees',
+  'Template treatment plans that ignore your symptoms',
+];
+---
+
+<section style="background: var(--navy, #0B1029); padding: var(--section-y) var(--gutter);">
+  <div style="max-width: var(--maxw); margin: 0 auto; text-align: center;">
+    <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 48px); color: #FFFFFF; text-transform: uppercase; line-height: var(--lh-heading); margin: 0 0 12px;">EVERYTHING'S INCLUDED. NO SURPRISES.</h2>
+    <p style="font-family: var(--font-body); font-size: clamp(15px, 1.5vw, 17px); color: rgba(255,255,255,0.70); line-height: var(--lh-body); margin: 0 0 48px;">One visit. Labs drawn and reviewed on-site. Protocol before you leave.</p>
+
+    <!-- Two-column cards -->
+    <div style="display: grid; grid-template-columns: 1fr; gap: 20px; text-align: left;">
+      <!-- Included -->
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 32px 28px;">
+        <h3 style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--check-green, #2D9F5C); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 24px;">✓ What's included</h3>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+          {included.map((item) => (
+            <li style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--check-green, #2D9F5C)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:1px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.5;">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Not included -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 32px 28px;">
+        <h3 style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 24px;">✗ What you won't find here</h3>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+          {notIncluded.map((item) => (
+            <li style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:1px;" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span style="font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,0.50); line-height: 1.5;">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Stat callout -->
+    <div style="margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08);">
+      <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 5vw, 56px); color: #FFFFFF; text-transform: uppercase; margin: 0 0 8px;">10,000+ Virginia Members</p>
+      <p style="font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,0.55); margin: 0 0 32px;">and growing across Richmond, Newport News &amp; Virginia Beach</p>
+      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
+        CLAIM YOUR NO-COST VISIT
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 768px) {
+    .two-col-cards { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>

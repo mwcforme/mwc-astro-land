@@ -1,0 +1,33 @@
+---
+import { PHONE } from '../data/constants';
+---
+
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; background: var(--navy, #0B1029); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center;">
+  <div style="max-width: var(--maxw); width: 100%; margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <!-- Logo -->
+    <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
+      <img src="/logos/Text_Logo_white.webp" alt="Men's Wellness Centers" width="160" height="40" style="height: 36px; width: auto; display: block;" />
+    </a>
+
+    <!-- Right side: phone + CTA -->
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <!-- Mobile: orange circle icon -->
+      <a href={PHONE.tel} class="md-hidden-phone-circle" aria-label="Call Men's Wellness Centers" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--orange, #E8670A); color: #fff; text-decoration: none; flex-shrink: 0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+      <!-- Desktop: text phone number -->
+      <a href={PHONE.tel} class="phone-text-desktop" style="font-family: var(--font-body); font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; white-space: nowrap; letter-spacing: 0.02em;">
+        {PHONE.display}
+      </a>
+      <!-- Desktop CTA button -->
+      <a href="#hero-form" class="cta-desktop-only" style="display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 20px; background: var(--orange, #E8670A); color: #fff; font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; white-space: nowrap; transition: background 0.2s;">
+        BOOK VISIT
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer so content doesn't go under fixed header -->
+<div style="height: 64px;" aria-hidden="true"></div>

@@ -1,0 +1,80 @@
+---
+const rows = [
+  { feature: 'Same-day lab results', mwc: true, primary: false, telemedicine: false },
+  { feature: 'In-person provider every visit', mwc: true, primary: false, telemedicine: false },
+  { feature: 'Virginia-licensed clinicians', mwc: true, primary: true, telemedicine: false },
+  { feature: "Men's health specialization", mwc: true, primary: false, telemedicine: 'partial' },
+  { feature: 'FSA & HSA accepted', mwc: true, primary: true, telemedicine: false },
+  { feature: 'No insurance required', mwc: true, primary: false, telemedicine: true },
+  { feature: 'Protocol adjusted to your labs', mwc: true, primary: false, telemedicine: 'partial' },
+  { feature: 'Same-day appointments', mwc: true, primary: false, telemedicine: true },
+];
+
+function icon(val: boolean | string) {
+  if (val === true) return { svg: 'M20 6 9 17 4 12', color: '#2D9F5C', label: 'Yes' };
+  if (val === 'partial') return { svg: 'M5 12h14', color: '#C9A961', label: 'Partial' };
+  return { svg: 'M18 6 6 18M6 6l12 12', color: 'rgba(255,255,255,0.25)', label: 'No' };
+}
+---
+
+<section style="background: var(--cro-surface-secondary, #ECEAE6); padding: var(--section-y) var(--gutter);">
+  <div style="max-width: var(--maxw); margin: 0 auto;">
+    <div style="background: var(--navy, #0B1029); border-radius: 24px; padding: clamp(32px, 5vw, 56px); overflow: hidden;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+
+        <!-- Left: heading + CTA -->
+        <div>
+          <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px;">SIDE BY SIDE</p>
+          <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3vw, 40px); color: #FFFFFF; text-transform: uppercase; line-height: var(--lh-heading); margin: 0 0 20px;">Why men come to us instead of their GP or telemedicine.</h2>
+          <p style="font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,0.70); line-height: 1.65; margin: 0 0 32px;">
+            Primary care sees hundreds of conditions. Telemedicine can't draw blood. We specialize in one thing — and we do it in one visit.
+          </p>
+          <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 32px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
+            BOOK MY VISIT
+          </a>
+        </div>
+
+        <!-- Right: table -->
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; min-width: 340px;">
+            <thead>
+              <tr>
+                <th style="font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); text-align: left; padding: 0 0 16px; border-bottom: 1px solid rgba(255,255,255,0.10);">Feature</th>
+                <th style="font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange, #E8670A); text-align: center; padding: 0 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.10);">MWC</th>
+                <th style="font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.40); text-align: center; padding: 0 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.10);">Primary Care</th>
+                <th style="font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.40); text-align: center; padding: 0 0 16px; border-bottom: 1px solid rgba(255,255,255,0.10);">Telemedicine</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => {
+                const mwcIcon = icon(row.mwc);
+                const primIcon = icon(row.primary);
+                const teleIcon = icon(row.telemedicine);
+                return (
+                  <tr style={`border-bottom: 1px solid rgba(255,255,255,${i < rows.length - 1 ? '0.06' : '0'})`}>
+                    <td style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.80); padding: 14px 0; line-height: 1.4;">{row.feature}</td>
+                    <td style="text-align: center; padding: 14px 12px;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={mwcIcon.color} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label={mwcIcon.label}><path d={mwcIcon.svg}/></svg>
+                    </td>
+                    <td style="text-align: center; padding: 14px 12px;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={primIcon.color} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label={primIcon.label}><path d={primIcon.svg}/></svg>
+                    </td>
+                    <td style="text-align: center; padding: 14px 0;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={teleIcon.color} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label={teleIcon.label}><path d={teleIcon.svg}/></svg>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 768px) {
+    .comparison-inner { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>

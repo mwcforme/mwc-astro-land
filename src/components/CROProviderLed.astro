@@ -1,0 +1,43 @@
+---
+const pillars = [
+  {
+    img: '/assets/lp/provider-consultation-1.webp',
+    title: 'Provider-Led, Every Visit',
+    body: 'A licensed Virginia provider sees you every time. Not a PA reading from a template — a clinician who knows your history and your protocol.',
+  },
+  {
+    img: '/assets/lp/provider-headshot.webp',
+    title: 'Virginia-Local, Always',
+    body: "Three locations. Real offices. In-person care means your provider can actually see what's happening — not interpret a telehealth photo.",
+  },
+  {
+    img: '/assets/lp/man-athletic-smiling.webp',
+    title: 'Built for Men',
+    body: "We only treat men's hormone, sexual health, and weight concerns. That focus makes us faster, more accurate, and better at what we do than a generalist practice.",
+  },
+];
+---
+
+<section style="background: var(--navy, #0B1029); padding: var(--section-y) var(--gutter);">
+  <div style="max-width: var(--maxw); margin: 0 auto;">
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px;">OUR DIFFERENCE</p>
+      <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); color: #FFFFFF; text-transform: uppercase; line-height: var(--lh-heading); margin: 0;">Provider-Led. Virginia-Local. Built for Men.</h2>
+    </div>
+
+    <!-- Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;">
+      {pillars.map((p) => (
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 20px; padding: 32px 24px; text-align: center;">
+          <!-- Circular image -->
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 2px solid var(--orange, #E8670A);">
+            <img src={p.img} alt={p.title} loading="lazy" width="100" height="100" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+          </div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(16px, 2vw, 20px); color: #FFFFFF; text-transform: uppercase; line-height: var(--lh-heading); margin: 0 0 14px;">{p.title}</h3>
+          <p style="font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,0.70); line-height: 1.65; margin: 0;">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

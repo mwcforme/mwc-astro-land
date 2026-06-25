@@ -1,0 +1,56 @@
+---
+const services = [
+  {
+    image: '/images/cro/hero-trt-v5.jpg',
+    eyebrow: "MEN'S HORMONE HEALTH",
+    headline: 'Your labs, reviewed by your provider.',
+    body: 'A Virginia-licensed provider reviews your bloodwork on-site and builds a protocol around your numbers. Seen this week. No referrals. No template protocols.',
+  },
+  {
+    image: '/images/cro/hero-ed-v2.jpg',
+    eyebrow: "MEN'S SEXUAL HEALTH",
+    headline: 'In-person evaluation. Clinical answers.',
+    body: "Erectile challenges have a physiological cause and a medical solution. We identify what's actually happening and give you a clear, evidence-based path forward — not a monthly pill subscription.",
+  },
+  {
+    image: '/images/cro/hero-wl-v3.jpg',
+    eyebrow: 'MEDICAL WEIGHT LOSS',
+    headline: 'Lab-guided protocol. Ongoing care.',
+    body: 'GLP-1 therapy prescribed and monitored by a Virginia provider who sees you in person. Your labs. Your protocol. Adjusted over time as your body responds.',
+  },
+];
+---
+
+<section style="background: var(--cro-surface-primary, #FFFFFF); padding: var(--section-y) var(--gutter);">
+  <div style="max-width: var(--maxw); margin: 0 auto;">
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px;">INTEGRATED CARE</p>
+      <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); color: var(--cro-text-on-light, #0B1029); text-transform: uppercase; line-height: var(--lh-heading); margin: 0 0 16px;">ONE PROVIDER. THREE CONCERNS.</h2>
+      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.5vw, 17px); color: var(--cro-text-body, #374151); line-height: var(--lh-body); max-width: 560px; margin: 0 auto;">
+        Most men's health issues aren't separate problems — they're connected. We treat the full picture with lab-guided protocols built around your bloodwork.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      {services.map((s) => (
+        <div class="cro-service-card" style="background: #FFFFFF; border-radius: 16px; border: 1px solid rgba(11,16,41,0.10); box-shadow: var(--shadow-card); overflow: hidden; display: flex; flex-direction: column;">
+          <!-- Photo -->
+          <div style="height: 220px; overflow: hidden;">
+            <img src={s.image} alt={s.headline} loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;" />
+          </div>
+          <!-- Body -->
+          <div style="padding: 28px 24px 32px; display: flex; flex-direction: column; flex: 1;">
+            <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 10px;">{s.eyebrow}</p>
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(18px, 2vw, 22px); color: var(--cro-text-on-light, #0B1029); text-transform: uppercase; line-height: var(--lh-heading); margin: 0 0 14px;">{s.headline}</h3>
+            <p style="font-family: var(--font-body); font-size: 15px; color: var(--cro-text-body, #374151); line-height: 1.65; margin: 0 0 24px; flex: 1;">{s.body}</p>
+            <a href="#hero-form" style="display: flex; align-items: center; justify-content: center; height: 52px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-btn, 12px); text-decoration: none; width: 100%; box-shadow: var(--shadow-cta);">
+              BOOK MY VISIT
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

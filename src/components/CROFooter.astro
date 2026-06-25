@@ -1,0 +1,76 @@
+---
+import { LOCATIONS } from '../data/locations';
+import { PHONE } from '../data/constants';
+---
+
+<footer style="background: var(--brand-navy-deep, #080D1F); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(48px, 8vw, 80px) var(--gutter) 0;">
+  <div style="max-width: var(--maxw); margin: 0 auto;">
+
+    <!-- Top section: logo + locations -->
+    <div style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px;">
+
+      <!-- Brand column -->
+      <div>
+        <img src="/logos/Text_Logo_white.webp" alt="Men's Wellness Centers" width="160" height="40" style="height: 36px; width: auto; display: block; margin-bottom: 16px;" />
+        <p style="font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; max-width: 320px; margin: 0 0 20px;">
+          Provider-supervised men's health care across Virginia. TRT, ED treatment, and medical weight loss in one in-person visit.
+        </p>
+        <a href={PHONE.tel} style="font-family: var(--font-body); font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.02em;">
+          {PHONE.display}
+        </a>
+      </div>
+
+      <!-- Locations -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px;">
+        {LOCATIONS.map((loc) => (
+          <div>
+            <p style="font-family: var(--font-display); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #FFFFFF; margin: 0 0 10px;">{loc.city}</p>
+            <p style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0 0 8px;">{loc.address}<br />{loc.cityStateZip}</p>
+            <a href={loc.phoneHref} style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; font-weight: 600;">{loc.phone}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Trust badges -->
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08);">
+      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        HIPAA Compliant
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        FSA & HSA Accepted
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same-Day Labs
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Virginia-Licensed Providers
+      </span>
+    </div>
+
+    <!-- Medical disclaimer -->
+    <div style="padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.06);">
+      <p style="font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.30); line-height: 1.6; margin: 0 0 8px;">
+        <strong style="color: rgba(255,255,255,0.40);">Medical Disclaimer:</strong> The information on this website is for informational purposes only and does not constitute medical advice. Consult a licensed healthcare provider for diagnosis and treatment. Results vary by individual.
+      </p>
+      <p style="font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.30); line-height: 1.6; margin: 0;">
+        By submitting a form on this site, you consent to receive calls, texts, and emails from Men's Wellness Centers at the number provided. Message and data rates may apply. Reply STOP to opt out.
+      </p>
+    </div>
+
+    <!-- Copyright bar -->
+    <div style="padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+      <p style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.30); margin: 0;">
+        &copy; {new Date().getFullYear()} Men's Wellness Centers. All rights reserved.
+      </p>
+      <div style="display: flex; gap: 20px;">
+        <a href="https://menswellnesscenters.com/privacy-policy" style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none;">Privacy Policy</a>
+        <a href="https://menswellnesscenters.com/terms" style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none;">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
