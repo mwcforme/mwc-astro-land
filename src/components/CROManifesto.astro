@@ -1,35 +1,74 @@
 ---
 ---
 
-<section style="background: var(--navy, #0B1029); padding: var(--section-y) var(--gutter);">
+<section style="background: var(--cro-surface-secondary); padding: var(--section-y) 24px; overflow: hidden;">
   <div class="manifesto-grid">
-    <!-- Left: copy -->
+    <!-- Copy — left on desktop, second on mobile -->
     <div class="manifesto-copy">
-      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 16px;">WHY MEN CHOOSE US</p>
-      <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); color: #FFFFFF; text-transform: uppercase; line-height: var(--lh-heading); margin: 0 0 24px;">Your labs might be normal. You still don't feel right.</h2>
-      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.5vw, 17px); color: rgba(255,255,255,0.80); line-height: var(--lh-body); margin: 0 0 20px;">
-        "Normal" lab ranges are built for the average of a population — not for you. A provider who spends 60 minutes with you can see the difference between a number on a page and how you actually feel.
+      <!-- Eyebrow -->
+      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange); margin: 0 0 16px;">WHY MEN CHOOSE US</p>
+
+      <!-- Heading -->
+      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--cro-text-on-light); margin-bottom: 24px;">
+        Your labs might be normal.<br />
+        You still don't feel right.
+      </h2>
+
+      <!-- Body paragraphs -->
+      <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.7; margin-bottom: 16px; max-width: 580px;">
+        Most men wait two years before saying something out loud. They get bloodwork. Their GP says everything looks fine. They go home. Nothing changes.
       </p>
-      <p style="font-family: var(--font-body); font-size: clamp(15px, 1.5vw, 17px); color: rgba(255,255,255,0.80); line-height: var(--lh-body); margin: 0 0 32px;">
-        We do bloodwork and results in the same visit. No waiting. No referrals. No six-week follow-up to discuss what you already know: something is off.
+      <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.7; margin-bottom: 32px; max-width: 580px;">
+        We specialize in men's health. One licensed provider, your labs, and a real conversation. Not a coordinator reading from a tablet. A real, in-person conversation about how you actually feel. If treatment is right for you, you leave with a plan the same day.
       </p>
 
-      <!-- Blockquote -->
-      <blockquote style="border-left: 3px solid var(--orange, #E8670A); padding: 0 0 0 20px; margin: 0 0 36px;">
-        <p style="font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.65; font-style: italic; margin: 0 0 10px;">
-          "I went in skeptical. Came out with a protocol same day. Six weeks later I feel like myself again — better sleep, better mood, actually looking forward to the gym."
+      <!-- Testimonial card — white with shadow -->
+      <div style="background: var(--cro-surface-primary); border: 1px solid rgba(11,16,41,0.10); border-radius: var(--cro-card-radius); box-shadow: var(--shadow-card); padding: 32px; margin-bottom: 28px;">
+        <!-- Quote icon -->
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--orange)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          style="margin-bottom: 12px; opacity: 0.7;"
+          aria-hidden="true"
+        >
+          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+          <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+        </svg>
+        <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); font-style: italic; line-height: 1.7; margin-bottom: 16px;">
+          "Saw two GPs who told me my levels were fine. I knew they weren't. Three weeks after starting treatment I was sleeping through the night again. The difference in energy over the next few months was something no standard lab panel ever captured."
         </p>
-        <cite style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.55); font-style: normal; font-weight: 600; letter-spacing: 0.05em;">— James T., 48, Norfolk</cite>
-      </blockquote>
+        <p style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; color: var(--cro-text-on-light); margin-bottom: 4px;">
+          James T., 48, Norfolk
+        </p>
+        <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray);">
+          Verified member. Individual results vary.
+        </p>
+      </div>
 
-      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 36px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
-        BOOK MY NO-COST VISIT
+      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 36px; background: var(--orange); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
+        BOOK YOUR 60-MINUTE VISIT
       </a>
+      <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--muted-gray); margin-top: 12px;">
+        No-obligation in-person visit. Individual results vary.
+      </p>
     </div>
 
-    <!-- Right: image -->
+    <!-- Image — right on desktop, first on mobile -->
     <div class="manifesto-image">
-      <img src="/images/cro/mwc-team.webp" alt="Men's Wellness Centers providers" loading="lazy" style="width: 100%; height: 480px; object-fit: cover; border-radius: 24px; display: block;" />
+      <img
+        src="/images/photos/member-richmond.jpg"
+        alt="Men's Wellness Centers member, Richmond Virginia"
+        loading="lazy"
+        width="800"
+        height="600"
+        style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.4);"
+      />
     </div>
   </div>
 </section>

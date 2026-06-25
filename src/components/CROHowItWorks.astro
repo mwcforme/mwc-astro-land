@@ -1,45 +1,53 @@
 ---
 const steps = [
   {
-    num: '01',
-    title: 'Book Online',
-    desc: 'Pick the location and time that works for you. Same-day appointments are often available. No referral, no insurance, no waiting room surprise.',
-    orange: false,
+    number: 1,
+    title: 'Book Online In Under 5 Minutes',
+    description: 'Pick the location and time that works for you. No referral, no phone tag.',
+    isLast: false,
   },
   {
-    num: '02',
+    number: 2,
     title: 'A Provider Who Actually Explains Your Labs',
-    desc: 'A licensed Virginia provider draws your blood on-site. While you wait, they review your results. By the time you leave, you know your numbers and what they mean for you.',
-    orange: false,
+    description: 'A licensed provider who specializes in men\'s health sits with you, goes over every number, and tells you exactly what\'s driving your symptoms.',
+    isLast: false,
   },
   {
-    num: '03',
-    title: 'Walk Out With Your Protocol',
-    desc: 'A care plan built around your labs, your symptoms, and your goals. Not a template. Adjustments over time as your body responds. We stay in it with you.',
-    orange: true,
+    number: 3,
+    title: 'Walk Out With Your Protocol Locked In',
+    description: 'A care plan built around your labs and your goals. Most members start treatment the same visit.',
+    isLast: true,
   },
 ];
 ---
 
-<section style="background: var(--cro-surface-primary, #FFFFFF); padding: var(--section-y) var(--gutter);">
-  <div style="max-width: var(--maxw); margin: 0 auto;">
-    <!-- Header -->
-    <div style="text-align: center; margin-bottom: 56px;">
-      <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange, #E8670A); margin: 0 0 12px;">THE PROCESS</p>
-      <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); color: var(--cro-text-on-light, #0B1029); text-transform: uppercase; line-height: var(--lh-heading); margin: 0;">Here's how it works. One visit.</h2>
+<section id="how-it-works" style="background: var(--cro-surface-secondary); padding: var(--section-y) 24px;">
+  <div style="max-width: 720px; margin: 0 auto;">
+    <!-- Eyebrow + Heading -->
+    <p style="font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 700; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--orange); margin: 0 0 12px; text-align: center;">THE PROCESS</p>
+    <div style="text-align: center; margin-bottom: 48px;">
+      <h2 style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 700; text-transform: uppercase; line-height: 1.05; color: var(--cro-text-on-light); margin: 0;">
+        HERE'S HOW IT WORKS IN ONE VISIT
+      </h2>
     </div>
 
     <!-- Steps -->
-    <div style="display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 720px; margin: 0 auto 48px;">
+    <div style="display: flex; flex-direction: column; gap: 40px; margin-bottom: 48px;">
       {steps.map((step) => (
-        <div style="display: flex; gap: 24px; align-items: flex-start;">
-          <!-- Circle number -->
-          <div style={`flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: ${step.orange ? 'var(--orange, #E8670A)' : 'var(--navy, #0B1029)'}; display: flex; align-items: center; justify-content: center;`}>
-            <span style="font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #FFFFFF;">{step.num}</span>
+        <div style="display: flex; gap: 20px; align-items: flex-start; background: var(--white); border-radius: var(--cro-card-radius); border: 1px solid rgba(11,16,41,0.10); box-shadow: var(--shadow-card); padding: 28px 32px;">
+          <!-- Numbered circle -->
+          <div style={`width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background: ${step.isLast ? 'var(--orange)' : 'var(--navy)'}; color: var(--white); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; flex-shrink: 0; ${step.isLast ? 'box-shadow: 0 0 0 4px rgba(232,103,10,0.20), 0 8px 24px rgba(232,103,10,0.30);' : ''}`}>
+            {step.number}
           </div>
+
+          <!-- Text -->
           <div>
-            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(17px, 2vw, 22px); color: var(--cro-text-on-light, #0B1029); text-transform: uppercase; line-height: 1.1; margin: 0 0 10px;">{step.title}</h3>
-            <p style="font-family: var(--font-body); font-size: 15px; color: var(--cro-text-body, #374151); line-height: 1.65; margin: 0;">{step.desc}</p>
+            <h3 style="font-family: var(--font-body); font-weight: 700; font-size: 1.125rem; color: var(--navy); margin-bottom: 6px; margin-top: 0;">
+              {step.title}
+            </h3>
+            <p style="font-family: var(--font-body); font-size: var(--fs-body); color: var(--cro-text-body); line-height: 1.65; margin: 0;">
+              {step.description}
+            </p>
           </div>
         </div>
       ))}
@@ -47,9 +55,8 @@ const steps = [
 
     <!-- CTA -->
     <div style="text-align: center;">
-      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; background: var(--orange, #E8670A); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
-        START TODAY
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px;" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="#hero-form" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; background: var(--orange); color: #FFFFFF; font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill, 999px); text-decoration: none; box-shadow: var(--shadow-cta);">
+        BOOK MY NO-COST VISIT
       </a>
     </div>
   </div>

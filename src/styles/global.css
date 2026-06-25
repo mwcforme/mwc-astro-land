@@ -94,6 +94,17 @@ body {
 @media (min-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr 460px !important; }
 }
+/* Hero headline responsive sizing — must match cro-tokens in React source */
+.cro-hero-headline { font-size: 26px; }
+@media (min-width: 768px) { .cro-hero-headline { font-size: 72px; } }
+@media (min-width: 1024px) { .cro-hero-headline { font-size: 100px; } }
+
+/* Skip-to-form a11y link */
+.skip-to-form:focus { left: 16px !important; top: 80px !important; }
+
+/* Hero form column mobile padding */
+@media (max-width: 767px) { .cro-hero-form-col { padding: 0 4px; } }
+
 .cro-service-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .cro-service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
 .manifesto-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; max-width: var(--maxw); margin: 0 auto; }

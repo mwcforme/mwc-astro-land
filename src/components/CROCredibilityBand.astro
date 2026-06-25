@@ -2,39 +2,37 @@
 import { GBP_REVIEWS_URL } from '../data/testimonials';
 ---
 
-<section style="background: var(--navy, #0B1029); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px var(--gutter);">
-  <div style="max-width: var(--maxw); margin: 0 auto;">
-    <!-- Stats grid: 2-col mobile, 4-col desktop -->
-    <div class="credibility-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 16px; text-align: center;">
+<section style="background: var(--brand-navy-deep, #0A1628); padding: 48px clamp(16px, 4vw, 32px) 40px;">
+  <div style="max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px 24px; text-align: center;" class="credibility-grid">
 
-      <div>
-        <p style="font-family: var(--font-display); font-weight: 700; color: #FFFFFF; font-size: clamp(26px, 4vw, 44px); line-height: 1; margin: 0 0 6px; text-transform: uppercase;">10,000+</p>
-        <p style="font-family: var(--font-body); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); margin: 0;">Virginia Members</p>
-      </div>
-
-      <div>
-        <p style="font-family: var(--font-display); font-weight: 700; color: #FFFFFF; font-size: clamp(26px, 4vw, 44px); line-height: 1; margin: 0 0 6px; text-transform: uppercase;">3</p>
-        <p style="font-family: var(--font-body); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); margin: 0;">Virginia Centers</p>
-      </div>
-
-      <div>
-        <a href={GBP_REVIEWS_URL} target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
-          <p style="font-family: var(--font-display); font-weight: 700; color: #FFFFFF; font-size: clamp(26px, 4vw, 44px); line-height: 1; margin: 0 0 6px; text-transform: uppercase;">4.9★</p>
-          <p style="font-family: var(--font-body); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); margin: 0;">Google Rating · 191 Reviews</p>
-        </a>
-      </div>
-
-      <div>
-        <p style="font-family: var(--font-display); font-weight: 700; color: #FFFFFF; font-size: clamp(26px, 4vw, 44px); line-height: 1; margin: 0 0 6px; text-transform: uppercase;">Same-Day</p>
-        <p style="font-family: var(--font-body); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.65); margin: 0;">Lab Results · Same Visit</p>
-      </div>
+    <!-- 10,000+ Virginia Members -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 44px); color: #FFFFFF; text-transform: uppercase; line-height: 1.1;">10,000+</div>
+      <div style="font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(255,255,255,0.70); margin-top: 6px; line-height: 1.4;">Virginia Members</div>
     </div>
 
-    <!-- FSA/HSA trust line -->
-    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center;">
-      <p style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.5;">
-        FSA &amp; HSA accepted &nbsp;·&nbsp; No insurance required &nbsp;·&nbsp; Same-day availability at all 3 Virginia locations
-      </p>
+    <!-- 3 Virginia Centers -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 44px); color: #FFFFFF; text-transform: uppercase; line-height: 1.1;">3</div>
+      <div style="font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(255,255,255,0.70); margin-top: 6px; line-height: 1.4;">Virginia Centers</div>
     </div>
+
+    <!-- 4.9★ Google Rating -->
+    <a href={GBP_REVIEWS_URL} target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+      <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 44px); color: #FFFFFF; text-transform: uppercase; line-height: 1.1;">4.9★</div>
+      <div style="font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(255,255,255,0.70); margin-top: 6px; line-height: 1.4;">Google Rating, 191 Verified Reviews</div>
+    </a>
+
+    <!-- Same-Day Lab Results -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div style="font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 44px); color: #FFFFFF; text-transform: uppercase; line-height: 1.1;">Same-Day</div>
+      <div style="font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(255,255,255,0.70); margin-top: 6px; line-height: 1.4;">Lab Results, Same Visit</div>
+    </div>
+
+  </div>
+
+  <!-- FSA/HSA line -->
+  <div style="max-width: var(--maxw); margin: 32px auto 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; text-align: center; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF;">
+    FSA, HSA &amp; FINANCING ACCEPTED. WE DO NOT BILL INSURANCE.
   </div>
 </section>

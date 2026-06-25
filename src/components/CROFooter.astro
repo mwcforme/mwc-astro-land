@@ -1,76 +1,154 @@
 ---
 import { LOCATIONS } from '../data/locations';
-import { PHONE } from '../data/constants';
+
+const year = new Date().getFullYear();
+
+const FOOTER_LOCATIONS = [
+  { name: 'Richmond',      phone: '(804) 346-4636', tel: 'tel:8043464636' },
+  { name: 'Virginia Beach', phone: '(757) 612-4428', tel: 'tel:7576124428' },
+  { name: 'Newport News',  phone: '(757) 806-6263', tel: 'tel:7578066263' },
+];
+
+const DISCLAIMERS = [
+  'Treatment requires a clinical evaluation and is provided only when medically appropriate.',
+  'Individual results vary. Treatment is provided by licensed providers at Men\'s Wellness Centers.',
+  'The information presented on this website is for general informational purposes only and is not intended to constitute medical advice, diagnosis, or treatment. Nothing on this website should be relied upon as a substitute for an in-person evaluation with a licensed healthcare professional. Always consult with a qualified provider regarding any questions about your health or treatment options.',
+  'Men\'s Wellness Centers provides care through in-center visits at its Virginia locations. All lab work, evaluations, and treatments are conducted on-site by licensed providers.',
+  'Testimonials and reviews reflect individual experiences only and are not intended to represent typical outcomes or make medical claims.',
+];
 ---
 
-<footer style="background: var(--brand-navy-deep, #080D1F); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(48px, 8vw, 80px) var(--gutter) 0;">
-  <div style="max-width: var(--maxw); margin: 0 auto;">
+<footer style="background: var(--brand-navy, #0B1029); font-family: var(--font-body);">
+  <div style="padding: 48px 24px 0; max-width: 1200px; margin: 0 auto;">
 
-    <!-- Top section: logo + locations -->
-    <div style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px;">
+    <!-- Row 1: Logo + Contact -->
+    <div class="footer-top-grid" style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px;">
 
       <!-- Brand column -->
       <div>
-        <img src="/logos/Text_Logo_white.webp" alt="Men's Wellness Centers" width="160" height="40" style="height: 36px; width: auto; display: block; margin-bottom: 16px;" />
-        <p style="font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; max-width: 320px; margin: 0 0 20px;">
-          Provider-supervised men's health care across Virginia. TRT, ED treatment, and medical weight loss in one in-person visit.
+        <img
+          src="/logos/Text_Logo_white.webp"
+          alt="Men's Wellness Centers"
+          width="200"
+          height="40"
+          style="height: 40px; width: auto; opacity: 0.9; display: block; margin-bottom: 12px;"
+          loading="lazy"
+          decoding="async"
+        />
+        <p style="font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 12px; line-height: 1.5;">
+          &copy; {year} Men&rsquo;s Wellness Centers.<br />
+          All rights reserved.
         </p>
-        <a href={PHONE.tel} style="font-family: var(--font-body); font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.02em;">
-          {PHONE.display}
-        </a>
       </div>
 
-      <!-- Locations -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px;">
-        {LOCATIONS.map((loc) => (
-          <div>
-            <p style="font-family: var(--font-display); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #FFFFFF; margin: 0 0 10px;">{loc.city}</p>
-            <p style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0 0 8px;">{loc.address}<br />{loc.cityStateZip}</p>
-            <a href={loc.phoneHref} style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; font-weight: 600;">{loc.phone}</a>
-          </div>
-        ))}
+      <!-- Contact column -->
+      <div>
+        <h3 style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; margin-top: 0;">
+          Contact
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          {FOOTER_LOCATIONS.map((loc) => (
+            <a
+              href={loc.tel}
+              style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; line-height: 1.5;"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange, #E8670A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.43 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <span style="font-weight: 600;">{loc.name}:</span>&nbsp;{loc.phone}
+            </a>
+          ))}
+          <a
+            href="mailto:info@menswellnesscenters.com"
+            style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; margin-top: 4px;"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange, #E8670A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@menswellnesscenters.com
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Trust badges -->
-    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08);">
-      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        HIPAA Compliant
-      </span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        FSA & HSA Accepted
-      </span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Same-Day Labs
-      </span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 99px; padding: 6px 14px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Virginia-Licensed Providers
-      </span>
+    <!-- Row 2: Trust badge images -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 0;">
+      <img
+        src="/images/badges/clia-color.webp"
+        alt="CLIA Certified"
+        width="120"
+        height="52"
+        style="height: 52px; width: auto;"
+        loading="lazy"
+        decoding="async"
+      />
+      <a
+        href="https://www.legitscript.com/websites/?checker_keywords=menswellnesscenters.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="/images/badges/legitscript-color.webp"
+          alt="LegitScript Certified"
+          width="110"
+          height="64"
+          style="height: 64px; width: auto;"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <img
+        src="/images/badges/hipaa-color.webp"
+        alt="HIPAA Compliant"
+        width="120"
+        height="52"
+        style="height: 52px; width: auto;"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
 
-    <!-- Medical disclaimer -->
-    <div style="padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.06);">
-      <p style="font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.30); line-height: 1.6; margin: 0 0 8px;">
-        <strong style="color: rgba(255,255,255,0.40);">Medical Disclaimer:</strong> The information on this website is for informational purposes only and does not constitute medical advice. Consult a licensed healthcare provider for diagnosis and treatment. Results vary by individual.
-      </p>
-      <p style="font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.30); line-height: 1.6; margin: 0;">
-        By submitting a form on this site, you consent to receive calls, texts, and emails from Men's Wellness Centers at the number provided. Message and data rates may apply. Reply STOP to opt out.
-      </p>
+    <!-- Row 3: Legal disclaimers -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: 32px; padding-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+      {DISCLAIMERS.map((text) => (
+        <p style="font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.50); margin: 0; overflow-wrap: break-word;">
+          {text}
+        </p>
+      ))}
     </div>
 
-    <!-- Copyright bar -->
-    <div style="padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
-      <p style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.30); margin: 0;">
-        &copy; {new Date().getFullYear()} Men's Wellness Centers. All rights reserved.
-      </p>
-      <div style="display: flex; gap: 20px;">
-        <a href="https://menswellnesscenters.com/privacy-policy" style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none;">Privacy Policy</a>
-        <a href="https://menswellnesscenters.com/terms" style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none;">Terms of Use</a>
-      </div>
+    <!-- Bottom bar: policy links -->
+    <div class="footer-bottom-bar" style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: 24px; padding-top: 16px; padding-bottom: 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.50);">
+      <span class="footer-bar-item">&copy; {year} Men&rsquo;s Wellness Centers</span>
+      <a href="/prescribing-policy" class="footer-bar-link">Safety Policy</a>
+      <a href="/terms-of-service" class="footer-bar-link">Terms of Service</a>
+      <a href="https://menswellnesscenters.com/privacy-practices/" target="_blank" rel="noopener noreferrer" class="footer-bar-link">Privacy Policy</a>
+      <a href="https://menswellnesscenters.com/privacy-practices/#hipaa" target="_blank" rel="noopener noreferrer" class="footer-bar-link">HIPAA Notice</a>
     </div>
   </div>
 </footer>
+
+<style>
+  @media (min-width: 768px) {
+    .footer-top-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .footer-bar-item::after,
+    .footer-bar-link::after {
+      content: '|';
+      margin: 0 12px;
+    }
+    .footer-bar-link:last-child::after {
+      content: '';
+    }
+  }
+  .footer-bar-link {
+    color: rgba(255,255,255,0.50);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  @media (max-width: 767px) {
+    .footer-bottom-bar {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>
